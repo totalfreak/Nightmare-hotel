@@ -13,9 +13,7 @@ closed = true
 cull_mode = 2
 polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
 
-[node name="Block" type="Sprite" groups=[
-"fov_occluder",
-]]
+[node name="Block" type="Sprite"]
 
 position = Vector2( 344, 320 )
 texture = ExtResource( 1 )

@@ -17,32 +17,22 @@ var max_angle = 360
 var angle_step = 5
 
 func _ready():
-	player = get_tree().get_root().get_node("Player")
 	pass
 
 
 func _physics_process(delta):
 	global_mouse = get_global_mouse_position()
-	
 
-func check_if_player_in_light(position):
-	if not player:
-		player = get_tree().get_root().get_node("Player")
-		print(get_tree().root)
+
+func check_if_player_in_light(position, length):
 	var space_state = get_world_2d().direct_space_state
-	
+	#print((player.global_position - global_position).normalized())
 	result = space_state.intersect_ray(position, player.global_position)
-	
+	#print(result)
 	if result:
-		ray_draw_list.append(result.position)
-		print("Player is in light")
-	update()
-
-func _draw():
-	if result:
-		for ray in ray_draw_list:
-			draw_line(Vector2(), ray, Color(255,0,0), 1)
-			ray_draw_list.erase(ray)
+		if result.collider == player and position.distance_to(player.global_position)  / 20 < length:
+			#print(result.position.distance_to(position))
+			return result
 
 
 

@@ -1,12 +1,15 @@
 extends Light2D
 
-
+var result
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	set_physics_process(true)
 	pass
 
 func _physics_process(delta):
-	Globals.check_if_player_in_light(global_position)
-	pass
+	result = Globals.check_if_player_in_light(global_position, texture_scale)
+	if result:
+		Globals.player.enter_light()
+	else:
+		Globals.player.leave_light()
+	update()

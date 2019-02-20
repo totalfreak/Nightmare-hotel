@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Solids/Block.tscn" type="PackedScene" id=2]
@@ -7,31 +7,31 @@
 [ext_resource path="res://assets/sprites/Lights/Ceiling Lamp.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Worlds/LightChecker.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="OccluderPolygon2D" id=2]
 
 closed = true
 cull_mode = 2
 polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
 
-[sub_resource type="OccluderPolygon2D" id=1]
+[sub_resource type="OccluderPolygon2D" id=3]
 
 closed = true
 cull_mode = 2
 polygon = PoolVector2Array( 32, 8, 8, -8, 0, -8, -24, 8, -24, 8, 0, -16, 8, -16, 32, 8 )
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 462, 224 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
+jumpSpeed = 400
 
 [node name="Block" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -121,7 +121,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 mode = 0
-mass = 1.0
+mass = 5.0
 friction = 1.0
 bounce = 0.0
 gravity_scale = 1.0
@@ -138,7 +138,7 @@ angular_damp = -1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Block11" type="Sprite" parent="RigidBody" index="1"]
 
@@ -146,7 +146,7 @@ texture = ExtResource( 3 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody/Block11" index="0"]
 
-occluder = SubResource( 3 )
+occluder = SubResource( 2 )
 light_mask = 1
 
 [node name="Torch2" parent="." index="22" instance=ExtResource( 4 )]
@@ -157,7 +157,6 @@ position = Vector2( 728, 320 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="23"]
 
-visible = false
 color = Color( 0.339844, 0.339844, 0.339844, 1 )
 
 [node name="DampedSpringJoint2D" type="PinJoint2D" parent="." index="24"]
@@ -196,6 +195,7 @@ angular_damp = -1.0
 "fov_occluders",
 ]]
 
+editor/display_folded = true
 position = Vector2( 836, 150 )
 input_pickable = false
 collision_layer = 1
@@ -226,7 +226,7 @@ texture = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="Ceiling Lamp/Ceiling Lamp" index="0"]
 
-position = Vector2( 0, 9 )
+position = Vector2( 0, 10 )
 scale = Vector2( 0.571429, 0.571429 )
 enabled = true
 editor_only = false
@@ -256,18 +256,16 @@ _sections_unfolded = [ "Range", "Shadow", "Z Index" ]
 
 position = Vector2( -2.28571, 11.4286 )
 scale = Vector2( 0.571429, 0.571429 )
-occluder = SubResource( 1 )
+occluder = SubResource( 3 )
 light_mask = 1
 
 [node name="occlusion_mask" type="CollisionPolygon2D" parent="Ceiling Lamp" index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( -16, 16, 16, 16, 2.28571, 6.85714, -2.28571, 6.85714 )
+polygon = PoolVector2Array( -16, 16, -2, 7, 2, 7, 16, 16, 2, 2, -2, 2 )
 
 [node name="Position2D" type="Position2D" parent="Ceiling Lamp" index="2"]
 
 position = Vector2( 0, 14 )
-
-[node name="Background" parent="." index="27" instance=ExtResource( 8 )]
 
 

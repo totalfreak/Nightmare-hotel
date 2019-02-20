@@ -8,12 +8,14 @@ var jumpCount = 0
 
 const UP_VECTOR = Vector2(0, -1)
 export var moveSpeed = 150
-export var jumpSpeed = 800
+export var jumpSpeed = 400
 export var dampSpeed = 20
 
 onready var jumpParticle = preload("res://Scenes/VFX/JumpDustParticle.tscn")
 
 onready var player = get_node(".")
+var entered_light = false
+
 
 var grabbedLedge = false
 export var knockbackDelay = 0.5
@@ -90,6 +92,18 @@ func _Move(var delta, var dir):
 		motion.x = lerp(motion.x, -moveSpeed, dampSpeed * delta)
 	elif dir == "right":
 		motion.x = lerp(motion.x, moveSpeed, dampSpeed * delta)
+
+func enter_light():
+	if not entered_light:
+		entered_light = true
+		print("Entered Light")
+		$Fire.visible = true
+
+func leave_light():
+	if entered_light:
+		entered_light = false
+		print("Left Light")
+		$Fire.visible = false
 
 
 func _Jump():
