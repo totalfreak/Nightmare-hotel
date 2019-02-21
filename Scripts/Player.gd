@@ -15,7 +15,7 @@ onready var jumpParticle = preload("res://Scenes/VFX/JumpDustParticle.tscn")
 
 onready var player = get_node(".")
 var entered_light = false
-
+var amount_of_lights_entered = 0
 
 var grabbedLedge = false
 export var knockbackDelay = 0.5
@@ -94,15 +94,19 @@ func _Move(var delta, var dir):
 		motion.x = lerp(motion.x, moveSpeed, dampSpeed * delta)
 
 func enter_light():
-	if not entered_light:
+	amount_of_lights_entered += 1
+	if amount_of_lights_entered >= 1:
 		entered_light = true
-		print("Entered Light")
 		$Fire.visible = true
+		print("Entered Light")
+		print("Amount of lights: ", amount_of_lights_entered)
 
 func leave_light():
-	if entered_light:
+	amount_of_lights_entered -= 1
+	if amount_of_lights_entered < 1:
 		entered_light = false
 		print("Left Light")
+		print("Amount of lights: ", amount_of_lights_entered)
 		$Fire.visible = false
 
 
