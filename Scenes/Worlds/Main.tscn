@@ -17,13 +17,12 @@ closed = true
 cull_mode = 2
 polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 462, 224 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
-jumpSpeed = 400
 
 [node name="Block" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -149,7 +148,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 mode = 0
-mass = 5.0
+mass = 50.0
 friction = 1.0
 bounce = 0.0
 gravity_scale = 1.0
@@ -185,7 +184,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 mode = 0
-mass = 5.0
+mass = 50.0
 friction = 1.0
 bounce = 0.0
 gravity_scale = 1.0
