@@ -1,164 +1,56 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/VFX/Torch.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=5]
+[ext_resource path="res://Scenes/VFX/Torch.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Ventilation.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[sub_resource type="OccluderPolygon2D" id=2]
-
-closed = true
-cull_mode = 2
-polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
-
 [node name="Main" type="Node2D" index="0"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
 editor/display_folded = true
-position = Vector2( 462, 224 )
+position = Vector2( -88, 288 )
+collision_layer = 3
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
-[node name="RigidBody" type="RigidBody2D" parent="." index="1"]
+[node name="Fire" parent="Player" index="3"]
 
-editor/display_folded = true
-visible = false
-position = Vector2( 672, 200 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 5.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+frame = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Block11" type="Sprite" parent="RigidBody" index="1"]
-
-texture = ExtResource( 2 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody/Block11" index="0"]
-
-occluder = SubResource( 2 )
-light_mask = 1
-
-[node name="RigidBody2" type="RigidBody2D" parent="." index="2"]
-
-editor/display_folded = true
-visible = false
-position = Vector2( 96, 320 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 50.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Block11" type="Sprite" parent="RigidBody2" index="1"]
-
-texture = ExtResource( 2 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody2/Block11" index="0"]
-
-occluder = SubResource( 2 )
-light_mask = 1
-
-[node name="RigidBody3" type="RigidBody2D" parent="." index="3"]
-
-editor/display_folded = true
-visible = false
-position = Vector2( 96, 256 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 50.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody3" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Block11" type="Sprite" parent="RigidBody3" index="1"]
-
-texture = ExtResource( 2 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody3/Block11" index="0"]
-
-occluder = SubResource( 2 )
-light_mask = 1
-
-[node name="Torch2" parent="." index="4" instance=ExtResource( 3 )]
+[node name="Torch2" parent="." index="1" instance=ExtResource( 2 )]
 
 editor/display_folded = true
 visible = false
 position = Vector2( 728, 320 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="5"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
 
 visible = false
 color = Color( 0.339844, 0.339844, 0.339844, 1 )
 
-[node name="Ceiling Lamp" parent="." index="6" instance=ExtResource( 4 )]
+[node name="Ceiling Lamp" parent="." index="3" instance=ExtResource( 3 )]
 
+editor/display_folded = false
 position = Vector2( 608, -48 )
 
 [node name="Ceiling Lamp" parent="Ceiling Lamp" index="0"]
 
+can_sleep = true
 linear_velocity = Vector2( 25, 0 )
+linear_damp = 1.0
 
-[node name="TileMap" type="TileMap" parent="." index="7"]
+[node name="TileMap" type="TileMap" parent="." index="4"]
 
 mode = 0
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -174,6 +66,111 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131057, 0, 0, -5, 0, 0, -65521, 0, 0, 65531, 0, 0, 131067, 0, 0, 196603, 0, 0, 262139, 0, 0, 327675, 0, 0, 393211, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0 )
+
+[node name="Ventilation" type="Node2D" parent="." index="5"]
+
+position = Vector2( 160, 352 )
+z_index = -2
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Vent" type="Sprite" parent="Ventilation" index="0"]
+
+modulate = Color( 0.223038, 0.734375, 0.206543, 0.490196 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Vent Area2D" type="Area2D" parent="Ventilation/Vent" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ventilation/Vent/Vent Area2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="EnterPosition" type="Position2D" parent="Ventilation/Vent/Vent Area2D" index="1"]
+
+position = Vector2( 0, 64 )
+
+[node name="ExitPosition" type="Position2D" parent="Ventilation/Vent/Vent Area2D" index="2"]
+
+[node name="Vent2" type="Sprite" parent="Ventilation" index="1"]
+
+modulate = Color( 0.223038, 0.734375, 0.206543, 0.490196 )
+position = Vector2( 576, 0 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Vent Area2D" type="Area2D" parent="Ventilation/Vent2" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ventilation/Vent2/Vent Area2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="EnterPosition" type="Position2D" parent="Ventilation/Vent2/Vent Area2D" index="1"]
+
+position = Vector2( 0, 64 )
+
+[node name="ExitPosition" type="Position2D" parent="Ventilation/Vent2/Vent Area2D" index="2"]
+
+[node name="Outer Collider" type="StaticBody2D" parent="Ventilation" index="2"]
+
+editor/display_folded = true
+position = Vector2( 576, 0 )
+input_pickable = false
+collision_layer = 8
+collision_mask = 8
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ventilation/Outer Collider" index="0"]
+
+position = Vector2( -576, 0 )
+build_mode = 0
+polygon = PoolVector2Array( 608, 32, 608, 160, -32, 160, -32, 32, -64, 32, -64, 192, 640, 192, 640, 32 )
+
+[node name="Inner Collider" type="StaticBody2D" parent="Ventilation" index="3"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 8
+collision_mask = 8
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ventilation/Inner Collider" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 32, 32, 32, 96, 544, 96, 544, 32, 512, 32, 512, 64, 64, 64, 64, 32 )
+
+[connection signal="body_entered" from="Ventilation/Vent/Vent Area2D" to="Ventilation/Vent/Vent Area2D" method="_on_Vent_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Ventilation/Vent/Vent Area2D" to="Ventilation/Vent/Vent Area2D" method="_on_Vent_Area2D_body_exited"]
+
+[connection signal="body_entered" from="Ventilation/Vent2/Vent Area2D" to="Ventilation/Vent2/Vent Area2D" method="_on_Vent_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Ventilation/Vent2/Vent Area2D" to="Ventilation/Vent2/Vent Area2D" method="_on_Vent_Area2D_body_exited"]
 
 
 [editable path="Player"]

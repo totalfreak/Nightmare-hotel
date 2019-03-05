@@ -8,6 +8,7 @@ var siding_left = false
 var jumping = false
 var stopping_jump = false
 var shooting = false
+var inside_vent = false
 
 var WALK_ACCEL = 2000.0
 var WALK_DEACCEL = 2000.0
