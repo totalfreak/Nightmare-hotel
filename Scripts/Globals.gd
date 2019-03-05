@@ -30,7 +30,7 @@ func check_if_player_in_light(position, length):
 	result = space_state.intersect_ray(position, player.global_position)
 	#print(result)
 	if result:
-		if result.collider == player and position.distance_to(player.global_position)  / 25 < length:
+		if result.collider == player and position.distance_to(player.global_position)  / 20 < length:
 			#print(result.position.distance_to(position))
 			return result
 

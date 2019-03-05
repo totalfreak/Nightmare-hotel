@@ -25,13 +25,10 @@ editor/display_folded = true
 position = Vector2( 462, 224 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
-[node name="Fire" parent="Player" index="3"]
-
-frame = 0
-
 [node name="RigidBody" type="RigidBody2D" parent="." index="1"]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 672, 200 )
 input_pickable = false
 collision_layer = 1
@@ -68,6 +65,7 @@ light_mask = 1
 [node name="RigidBody2" type="RigidBody2D" parent="." index="2"]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 96, 320 )
 input_pickable = false
 collision_layer = 1
@@ -104,6 +102,7 @@ light_mask = 1
 [node name="RigidBody3" type="RigidBody2D" parent="." index="3"]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 96, 256 )
 input_pickable = false
 collision_layer = 1
@@ -150,21 +149,13 @@ color = Color( 0.339844, 0.339844, 0.339844, 1 )
 
 [node name="Ceiling Lamp" parent="." index="6" instance=ExtResource( 4 )]
 
-position = Vector2( 736, -176 )
+position = Vector2( 608, -48 )
 
 [node name="Ceiling Lamp" parent="Ceiling Lamp" index="0"]
 
 linear_velocity = Vector2( 25, 0 )
 
-[node name="Ceiling Lamp2" parent="." index="7" instance=ExtResource( 4 )]
-
-position = Vector2( -30, 140 )
-
-[node name="Ceiling Lamp" parent="Ceiling Lamp2" index="0"]
-
-linear_velocity = Vector2( -50, 0 )
-
-[node name="TileMap" type="TileMap" parent="." index="8"]
+[node name="TileMap" type="TileMap" parent="." index="7"]
 
 mode = 0
 tile_set = ExtResource( 5 )
@@ -182,9 +173,8 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -262133, 0, 0, -262132, 0, 0, -262131, 0, 0, -262130, 0, 0, -262129, 0, 0, -131077, 0, 0, -196593, 0, 0, -65541, 0, 0, -131057, 0, 0, -5, 0, 0, -65521, 0, 0, 65531, 0, 0, 131067, 0, 0, 196603, 0, 0, 262139, 0, 0, 327675, 0, 0, 393211, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0 )
+tile_data = PoolIntArray( -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131057, 0, 0, -5, 0, 0, -65521, 0, 0, 65531, 0, 0, 131067, 0, 0, 196603, 0, 0, 262139, 0, 0, 327675, 0, 0, 393211, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0 )
 
 
 [editable path="Player"]
 [editable path="Ceiling Lamp"]
-[editable path="Ceiling Lamp2"]
