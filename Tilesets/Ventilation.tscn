@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/Vent.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+[node name="Vent" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.480469, 0.480469, 0.480469, 1 )
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Vent2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 128, 32 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+

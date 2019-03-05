@@ -34,6 +34,7 @@ func check_if_player_in_light(position, length):
 			#print(result.position.distance_to(position))
 			return result
 
+
 func enter_ventilation(enter_pos):
 	# Disabling the normal collision and mask to only be physics with vent
 	player.set_collision_layer_bit(0, false)
@@ -42,6 +43,7 @@ func enter_ventilation(enter_pos):
 	player.set_collision_mask_bit(3, true)
 	player.global_position = enter_pos
 	player.inside_vent = true
+	#player.gravity_scale = 0
 
 func exit_ventilation(exit_pos):
 	# Applying the normal collision layer and mask
@@ -51,6 +53,7 @@ func exit_ventilation(exit_pos):
 	player.set_collision_mask_bit(3, false)
 	player.global_position = exit_pos
 	player.inside_vent = false
+	#player.gravity_scale = 2.5
 
 func _Change_Scene(var newScene):
 	get_tree().change_scene(newScene)

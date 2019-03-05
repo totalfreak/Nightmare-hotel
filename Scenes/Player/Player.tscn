@@ -103,7 +103,6 @@ position = Vector2( 0, 32 )
 
 visible = false
 position = Vector2( -2, -1 )
-frame = 2
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 

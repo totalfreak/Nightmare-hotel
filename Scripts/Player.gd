@@ -9,6 +9,7 @@ var jumping = false
 var stopping_jump = false
 var shooting = false
 var inside_vent = false
+var is_on_stair = false
 
 var WALK_ACCEL = 2000.0
 var WALK_DEACCEL = 2000.0
@@ -132,6 +133,7 @@ func _integrate_forces(s):
 	# Get the controls
 	var move_left = Input.is_action_pressed("ui_left")
 	var move_right = Input.is_action_pressed("ui_right")
+	var move_down = Input.is_action_pressed("ui_down")
 	var jump = Input.is_action_pressed("Jump")
 	
 	
@@ -149,29 +151,6 @@ func _integrate_forces(s):
 			found_floor = true
 			floor_index = x
 	
-#	# A good idea when implementing characters of all kinds,
-#	# compensates for physics imprecision, as well as human reaction delay.
-#	if shoot and not shooting:
-#		shoot_time = 0
-#		var bi = bullet.instance()
-#		var ss
-#		if siding_left:
-#			ss = -1.0
-#		else:
-#			ss = 1.0
-#		var pos = position + $bullet_shoot.position * Vector2(ss, 1.0)
-#
-#		bi.position = pos
-#		get_parent().add_child(bi)
-#
-#		bi.linear_velocity = Vector2(800.0 * ss, -80)
-#
-#		$sprite/smoke.restart()
-#		$sound_shoot.play()
-#
-#		add_collision_exception_with(bi) # Make bullet and this not collide
-#	else:
-#		shoot_time += step
 	
 	if found_floor:
 		airborne_time = 0.0
@@ -207,12 +186,12 @@ func _integrate_forces(s):
 			lv.x = sign(lv.x) * xv
 		
 		# Check jump
-		if not jumping and jump:
+		if not jumping and jump and not is_on_stair:
 			lv.y = -JUMP_VELOCITY
 			jumping = true
 			stopping_jump = false
 			#$sound_jump.play()
-		
+	
 		# Check siding
 		if lv.x < 0 and move_left:
 			new_siding_left = true
@@ -270,6 +249,29 @@ func _integrate_forces(s):
 		floor_h_velocity = s.get_contact_collider_velocity_at_position(floor_index).x
 		lv.x += floor_h_velocity
 	
+	
+	# Move up on stair
+	if is_on_stair and jump:
+		lv.y -= WALK_ACCEL/5 * step
+	# Move down on stair
+	elif is_on_stair and move_down:
+		lv.y += WALK_ACCEL/5 * step
+	elif is_on_stair:
+		lv.y = 0
+	
+	if is_on_stair:
+		gravity_scale = 0
+	else:
+		gravity_scale = 2.5
+	
 	# Finally, apply gravity and set back the linear velocity
 	lv += s.get_total_gravity() * step
 	s.set_linear_velocity(lv)
+
+func on_stair():
+	print("Entered stair")
+	is_on_stair = true
+
+func left_stair():
+	print("Left stair")
+	is_on_stair = false

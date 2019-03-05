@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/VFX/Torch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/Vent.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Ventilation.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Stair Area.gd" type="Script" id=7]
+[ext_resource path="res://Tilesets/Ventilation.tres" type="TileSet" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -23,7 +25,7 @@ _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="Fire" parent="Player" index="3"]
 
-frame = 0
+frame = 2
 
 [node name="Torch2" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -70,14 +72,14 @@ tile_data = PoolIntArray( -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0
 [node name="Ventilation" type="Node2D" parent="." index="5"]
 
 position = Vector2( 160, 352 )
-z_index = -2
-_sections_unfolded = [ "Z Index" ]
+z_index = -1
+_sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="Vent" type="Sprite" parent="Ventilation" index="0"]
 
-modulate = Color( 0.223038, 0.734375, 0.206543, 0.490196 )
+editor/display_folded = true
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Vent Area2D" type="Area2D" parent="Ventilation/Vent" index="0"]
 
@@ -86,9 +88,12 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 10
+collision_mask = 10
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ventilation/Vent/Vent Area2D" index="0"]
 
@@ -96,16 +101,16 @@ shape = SubResource( 1 )
 
 [node name="EnterPosition" type="Position2D" parent="Ventilation/Vent/Vent Area2D" index="1"]
 
-position = Vector2( 0, 64 )
+position = Vector2( 0, 0.66666 )
 
 [node name="ExitPosition" type="Position2D" parent="Ventilation/Vent/Vent Area2D" index="2"]
 
 [node name="Vent2" type="Sprite" parent="Ventilation" index="1"]
 
-modulate = Color( 0.223038, 0.734375, 0.206543, 0.490196 )
+editor/display_folded = true
 position = Vector2( 576, 0 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Vent Area2D" type="Area2D" parent="Ventilation/Vent2" index="0"]
 
@@ -114,9 +119,12 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 10
+collision_mask = 10
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ventilation/Vent2/Vent Area2D" index="0"]
 
@@ -124,45 +132,90 @@ shape = SubResource( 1 )
 
 [node name="EnterPosition" type="Position2D" parent="Ventilation/Vent2/Vent Area2D" index="1"]
 
-position = Vector2( 0, 64 )
+position = Vector2( 0, 0.66666 )
 
 [node name="ExitPosition" type="Position2D" parent="Ventilation/Vent2/Vent Area2D" index="2"]
 
-[node name="Outer Collider" type="StaticBody2D" parent="Ventilation" index="2"]
+[node name="Vent Collider" type="StaticBody2D" parent="Ventilation" index="2"]
 
 editor/display_folded = true
-position = Vector2( 576, 0 )
 input_pickable = false
-collision_layer = 8
-collision_mask = 8
+collision_layer = 0
+collision_mask = 0
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ventilation/Outer Collider" index="0"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ventilation/Vent Collider" index="0"]
 
-position = Vector2( -576, 0 )
 build_mode = 0
 polygon = PoolVector2Array( 608, 32, 608, 160, -32, 160, -32, 32, -64, 32, -64, 192, 640, 192, 640, 32 )
 
-[node name="Inner Collider" type="StaticBody2D" parent="Ventilation" index="3"]
-
-editor/display_folded = true
-input_pickable = false
-collision_layer = 8
-collision_mask = 8
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ventilation/Inner Collider" index="0"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ventilation/Vent Collider" index="1"]
 
 build_mode = 0
 polygon = PoolVector2Array( 32, 32, 32, 96, 544, 96, 544, 32, 512, 32, 512, 64, 64, 64, 64, 32 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Ventilation/Vent Collider" index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( -64, 32, -64, -64, 64, -64, 64, 32, 32, 32, 32, -32, -32, -32, -32, 32 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Ventilation/Vent Collider" index="3"]
+
+position = Vector2( 576, 0 )
+build_mode = 0
+polygon = PoolVector2Array( -64, 32, -64, -64, 64, -64, 64, 32, 32, 32, 32, -32, -32, -32, -32, 32 )
+
+[node name="Stair Area" type="Area2D" parent="Ventilation" index="3"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 10
+collision_mask = 10
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 7 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Left Stair" type="CollisionPolygon2D" parent="Ventilation/Stair Area" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, 32, 32, 32, 32, 160, -32, 160 )
+
+[node name="Right Stair" type="CollisionPolygon2D" parent="Ventilation/Stair Area" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 544, 32, 608, 32, 608, 160, 544, 160 )
+
+[node name="TileMap" type="TileMap" parent="Ventilation" index="4"]
+
+position = Vector2( 32, 32 )
+z_index = -10
+mode = 0
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 8, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0 )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [connection signal="body_entered" from="Ventilation/Vent/Vent Area2D" to="Ventilation/Vent/Vent Area2D" method="_on_Vent_Area2D_body_entered"]
 
@@ -171,6 +224,10 @@ polygon = PoolVector2Array( 32, 32, 32, 96, 544, 96, 544, 32, 512, 32, 512, 64, 
 [connection signal="body_entered" from="Ventilation/Vent2/Vent Area2D" to="Ventilation/Vent2/Vent Area2D" method="_on_Vent_Area2D_body_entered"]
 
 [connection signal="body_exited" from="Ventilation/Vent2/Vent Area2D" to="Ventilation/Vent2/Vent Area2D" method="_on_Vent_Area2D_body_exited"]
+
+[connection signal="body_entered" from="Ventilation/Stair Area" to="Ventilation/Stair Area" method="_on_Stair_Area_body_entered"]
+
+[connection signal="body_exited" from="Ventilation/Stair Area" to="Ventilation/Stair Area" method="_on_Stair_Area_body_exited"]
 
 
 [editable path="Player"]
