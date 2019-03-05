@@ -25,7 +25,7 @@ _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="Fire" parent="Player" index="3"]
 
-frame = 2
+frame = 1
 
 [node name="Torch2" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -41,13 +41,12 @@ color = Color( 0.339844, 0.339844, 0.339844, 1 )
 [node name="Ceiling Lamp" parent="." index="3" instance=ExtResource( 3 )]
 
 editor/display_folded = false
-position = Vector2( 608, -48 )
+position = Vector2( 464, 232 )
 
 [node name="Ceiling Lamp" parent="Ceiling Lamp" index="0"]
 
 can_sleep = true
 linear_velocity = Vector2( 25, 0 )
-linear_damp = 1.0
 
 [node name="TileMap" type="TileMap" parent="." index="4"]
 
@@ -71,13 +70,13 @@ tile_data = PoolIntArray( -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0
 
 [node name="Ventilation" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
 position = Vector2( 160, 352 )
 z_index = -1
 _sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="Vent" type="Sprite" parent="Ventilation" index="0"]
 
-editor/display_folded = true
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -107,7 +106,6 @@ position = Vector2( 0, 0.66666 )
 
 [node name="Vent2" type="Sprite" parent="Ventilation" index="1"]
 
-editor/display_folded = true
 position = Vector2( 576, 0 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -124,7 +122,7 @@ collision_mask = 10
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 6 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Audio Bus" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ventilation/Vent2/Vent Area2D" index="0"]
 

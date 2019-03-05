@@ -27,7 +27,8 @@ func _physics_process(delta):
 func check_if_player_in_light(position, length):
 	var space_state = get_world_2d().direct_space_state
 	#print((player.global_position - global_position).normalized())
-	result = space_state.intersect_ray(position, player.global_position)
+	# Fire ray from the light position towards player position, at the player physics layer
+	result = space_state.intersect_ray(position, player.global_position, [], 1)
 	#print(result)
 	if result:
 		if result.collider == player and position.distance_to(player.global_position)  / 20 < length:
