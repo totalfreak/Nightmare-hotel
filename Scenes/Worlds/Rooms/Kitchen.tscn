@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=2]
@@ -6,7 +6,13 @@
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprites/Backgrounds/kitchen_bg.png" type="Texture" id=5]
 
-[node name="Kitchen" type="Node2D" index="0"]
+[sub_resource type="OccluderPolygon2D" id=1]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( 56, 368, 344, 368, 336, 384, 56, 384 )
+
+[node name="Kitchen" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -28,7 +34,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196620, 0, 0, 262144, 0, 0, 262156, 0, 0, 327680, 0, 0, 327692, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196620, 0, 0, 262144, 0, 0, 262156, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
@@ -84,6 +90,28 @@ position = Vector2( 0, 16 )
 scale = Vector2( 1.14444, 1.08333 )
 texture = ExtResource( 5 )
 region_enabled = false
+
+[node name="Light Stuff" type="Node2D" parent="." index="4"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Light Stuff" index="0"]
+
+occluder = SubResource( 1 )
+light_mask = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Light Stuff" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Light Stuff/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 56, 368, 344, 368, 336, 384, 56, 384 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
