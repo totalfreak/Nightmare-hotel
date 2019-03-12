@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Props/ThrowableObject.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -7,6 +7,12 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 20, 20 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -20, -20, 20, -20, 20, 20, -20, 20 )
 
 [node name="ThrowableObject" type="RigidBody2D" index="0"]
 
@@ -56,6 +62,13 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerEntered" index="0"]
 
 shape = SubResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="3"]
+
+show_behind_parent = true
+occluder = SubResource( 2 )
+light_mask = 1
+_sections_unfolded = [ "Visibility" ]
 
 [connection signal="body_entered" from="PlayerEntered" to="." method="_on_PlayerEntered_body_entered"]
 
