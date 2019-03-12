@@ -21,11 +21,6 @@ light_mode = 0
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Run",
@@ -33,12 +28,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Fall",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Fall",
 "speed": 5.0
 } ]
 
@@ -53,7 +53,7 @@ custom_solver_bias = 0.0
 radius = 16.0
 height = 25.0
 
-[node name="Player" type="RigidBody2D" groups=[
+[node name="Player" type="RigidBody2D" index="0" groups=[
 "Player",
 ]]
 
@@ -101,8 +101,9 @@ position = Vector2( 0, 32 )
 
 [node name="Fire" parent="." index="3" instance=ExtResource( 10 )]
 
+visible = false
 position = Vector2( -2, -1 )
-frame = 2
+frame = 3
 
 [node name="Background" parent="." index="4" instance=ExtResource( 11 )]
 

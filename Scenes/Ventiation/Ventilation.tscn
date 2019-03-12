@@ -12,18 +12,19 @@ extents = Vector2( 32, 32 )
 
 [node name="Ventilation" type="Node2D"]
 
-editor/display_folded = true
 position = Vector2( 160, 352 )
 z_index = -1
 _sections_unfolded = [ "Visibility", "Z Index" ]
 
-[node name="Vent" type="Sprite" parent="." index="0"]
+[node name="Vent Door" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Vent Area2D" type="Area2D" parent="Vent" index="0"]
+[node name="Vent Area2D" type="Area2D" parent="Vent Door" index="0"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -36,24 +37,26 @@ audio_bus_name = "Master"
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent/Vent Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent Door/Vent Area2D" index="0"]
 
 shape = SubResource( 1 )
 
-[node name="EnterPosition" type="Position2D" parent="Vent/Vent Area2D" index="1"]
+[node name="EnterPosition" type="Position2D" parent="Vent Door/Vent Area2D" index="1"]
 
 position = Vector2( 0, 0.66666 )
 
-[node name="ExitPosition" type="Position2D" parent="Vent/Vent Area2D" index="2"]
+[node name="ExitPosition" type="Position2D" parent="Vent Door/Vent Area2D" index="2"]
 
-[node name="Vent2" type="Sprite" parent="." index="1"]
+[node name="Vent Door2" type="Sprite" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 576, 0 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Vent Area2D" type="Area2D" parent="Vent2" index="0"]
+[node name="Vent Area2D" type="Area2D" parent="Vent Door2" index="0"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -66,19 +69,18 @@ audio_bus_name = "Master"
 script = ExtResource( 2 )
 _sections_unfolded = [ "Audio Bus" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent2/Vent Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent Door2/Vent Area2D" index="0"]
 
 shape = SubResource( 1 )
 
-[node name="EnterPosition" type="Position2D" parent="Vent2/Vent Area2D" index="1"]
+[node name="EnterPosition" type="Position2D" parent="Vent Door2/Vent Area2D" index="1"]
 
 position = Vector2( 0, 0.66666 )
 
-[node name="ExitPosition" type="Position2D" parent="Vent2/Vent Area2D" index="2"]
+[node name="ExitPosition" type="Position2D" parent="Vent Door2/Vent Area2D" index="2"]
 
 [node name="Vent Collider" type="StaticBody2D" parent="." index="2"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 0
 collision_mask = 0
@@ -157,13 +159,13 @@ format = 1
 tile_data = PoolIntArray( 65535, 0, 0, 8, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0 )
 _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
-[connection signal="body_entered" from="Vent/Vent Area2D" to="Vent/Vent Area2D" method="_on_Vent_Area2D_body_entered"]
+[connection signal="body_entered" from="Vent Door/Vent Area2D" to="Vent Door/Vent Area2D" method="_on_Vent_Area2D_body_entered"]
 
-[connection signal="body_exited" from="Vent/Vent Area2D" to="Vent/Vent Area2D" method="_on_Vent_Area2D_body_exited"]
+[connection signal="body_exited" from="Vent Door/Vent Area2D" to="Vent Door/Vent Area2D" method="_on_Vent_Area2D_body_exited"]
 
-[connection signal="body_entered" from="Vent2/Vent Area2D" to="Vent2/Vent Area2D" method="_on_Vent_Area2D_body_entered"]
+[connection signal="body_entered" from="Vent Door2/Vent Area2D" to="Vent Door2/Vent Area2D" method="_on_Vent_Area2D_body_entered"]
 
-[connection signal="body_exited" from="Vent2/Vent Area2D" to="Vent2/Vent Area2D" method="_on_Vent_Area2D_body_exited"]
+[connection signal="body_exited" from="Vent Door2/Vent Area2D" to="Vent Door2/Vent Area2D" method="_on_Vent_Area2D_body_exited"]
 
 [connection signal="body_entered" from="Stair Area" to="Stair Area" method="_on_Stair_Area_body_entered"]
 
