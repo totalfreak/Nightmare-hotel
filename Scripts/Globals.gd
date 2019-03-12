@@ -26,16 +26,26 @@ func _physics_process(delta):
 
 func check_if_player_in_light(position, length):
 	var space_state = get_world_2d().direct_space_state
-	#draw
+	
 	#print((player.global_position - global_position).normalized())
 	# Fire ray from the light position towards player position, at the player physics layer
 	result = space_state.intersect_ray(position, player.global_position, [], 1)
+	
 	#print(result)
 	if result:
-		if result.collider == player and position.distance_to(player.global_position)  / 20 < length:
+		if result.collider == player and position.distance_to(player.global_position)  / 25 < length:
+			ray_draw_list.append([result.position, position])
+			update()
 			#print(result.position.distance_to(position))
 			return result
 
+func _draw():
+	var i = 0
+	for ray in ray_draw_list:
+		
+		draw_line(ray[0], ray[1], Color(1, 0, 0))
+		ray_draw_list.remove(i)
+		i += 1
 
 func enter_ventilation(enter_pos):
 	# Disabling the normal collision and mask to only be physics with vent
@@ -67,12 +77,7 @@ func _Change_Scene(var newScene):
 	get_tree().change_scene(newScene)
 	pass
 
-<<<<<<< HEAD
+
 func player_death():
 	_Change_Scene("res://Scenes/UI/DeathScreen.tscn")
-=======
-func throw_object():
-	player.set
-	pass
 
->>>>>>> added ability to pick up and throw objects

@@ -48,17 +48,15 @@ position = Vector2( 0, 0.66666 )
 
 [node name="Vent Door2" type="Sprite" parent="." index="1"]
 
-<<<<<<< HEAD
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.502745 )
-=======
->>>>>>> added ability to pick up and throw objects
 position = Vector2( 576, 0 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Vent Area2D" type="Area2D" parent="Vent Door2" index="0"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
