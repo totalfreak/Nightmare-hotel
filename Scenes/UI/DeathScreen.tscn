@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/UI/DeathScreen.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Amble-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/Dark Souls - 'You Died' Sound Effect-CpaT28qMfis.ogg" type="AudioStream" id=4]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=4]
 
 resource_name = "Start"
 length = 2.5
@@ -59,7 +60,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 default_font = SubResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 
 size = 42
 use_mipmaps = false
@@ -67,7 +68,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="DeathScreen" type="Control" index="0"]
+[node name="DeathScreen" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -88,7 +89,7 @@ autoplay = "Start"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Start = SubResource( 1 )
+anims/Start = SubResource( 4 )
 blend_times = [  ]
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="1"]
@@ -153,7 +154,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -181,7 +182,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -190,6 +191,15 @@ text = "Retry"
 flat = false
 align = 1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="pressed" from="Main Menu Button" to="." method="_on_Main_Menu_Button_pressed"]
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Dark Souls - 'You Died' Sound Effect-CpaT28qMfis.ogg-7e05bd659027a12b7de670e7c52ae5cb.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/Dark Souls - 'You Died' Sound Effect-CpaT28qMfis.ogg"
+dest_files=[ "res://.import/Dark Souls - 'You Died' Sound Effect-CpaT28qMfis.ogg-7e05bd659027a12b7de670e7c52ae5cb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

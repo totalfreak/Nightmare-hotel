@@ -1,12 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/Camera1.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sprites/Backgrounds/kitchen_bg.png" type="Texture" id=5]
 
-[node name="Kitchen" type="Node2D" index="0"]
+[node name="Kitchen" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -28,7 +26,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196620, 0, 0, 262144, 0, 0, 262156, 0, 0, 327680, 0, 0, 327692, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 65536, 0, 0, 65556, 0, 0, 131072, 0, 0, 131092, 0, 0, 196608, 0, 0, 196628, 0, 0, 262144, 0, 0, 262164, 0, 0, 327680, 0, 0, 327700, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0 )
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
@@ -43,11 +41,11 @@ audio_bus_name = "Master"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 32, 40, 800, 32, 800, 552, 32, 552 )
+polygon = PoolVector2Array( 32, 40, 1320, 32, 1320, 552, 32, 552 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
-position = Vector2( 408, 288 )
+position = Vector2( 376, 288 )
 anchor_mode = 1
 rotating = false
 current = false
@@ -71,19 +69,6 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 3 )
-_sections_unfolded = [ "Limit", "Transform" ]
-
-[node name="Background" parent="Camera2D" index="0" instance=ExtResource( 4 )]
-
-position = Vector2( -504, -304 )
-z_index = -20
-
-[node name="Background" parent="." index="3" instance=ExtResource( 4 )]
-
-position = Vector2( 0, 16 )
-scale = Vector2( 1.14444, 1.08333 )
-texture = ExtResource( 5 )
-region_enabled = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
