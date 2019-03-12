@@ -20,6 +20,9 @@ func _physics_process(delta):
 	var player = Globals.player
 	motion.x = speed * direction
 	
+	if not is_on_floor():
+		motion.y += 200
+	
 	$EnemySprite.flip_h = false if direction == 1 else true
 	
 	if not chasing:
@@ -32,7 +35,9 @@ func _physics_process(delta):
 		$EnemySprite.frames.set_animation_speed("Walk", 10)
 		if player.global_position.x < enemy.global_position.x:
 			direction = -1
-		else:
+		elif player.global_position.x > enemy.global_position.x:
 			direction = 1
+		else: 
+			$EnemySprite.play("Idle")
 		motion.x = (speed * 2) * direction
 	motion = move_and_slide(motion * speed * delta, UP)
