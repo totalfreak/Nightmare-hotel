@@ -11,7 +11,7 @@
 
 closed = true
 cull_mode = 0
-polygon = PoolVector2Array( 56, 368, 344, 368, 336, 384, 56, 384 )
+polygon = PoolVector2Array( 48, 368, 344, 368, 336, 384, 56, 384 )
 
 [node name="Kitchen" type="Node2D" index="0"]
 
@@ -31,11 +31,11 @@ cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
 collision_bounce = 0.0
-collision_layer = 17
-collision_mask = 17
+collision_layer = 21
+collision_mask = 21
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196620, 0, 0, 262144, 0, 0, 262156, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
+tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 131071, 0, 0, 65549, 0, 0, 196607, 0, 0, 131085, 0, 0, 262143, 0, 0, 196621, 0, 0, 327679, 0, 0, 262157, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
@@ -52,7 +52,7 @@ audio_bus_name = "Master"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 32, 40, 800, 32, 800, 552, 32, 552 )
+polygon = PoolVector2Array( 0, 0, 832, 0, 832, 320, 896, 320, 896, 512, 832, 512, 832, 576, 0, 576, 0, 512.082, -64, 512, -64, 320, 0, 320 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
@@ -85,6 +85,7 @@ _sections_unfolded = [ "Limit", "Transform" ]
 
 [node name="Background" parent="Camera2D" index="0" instance=ExtResource( 4 )]
 
+visible = false
 position = Vector2( -504, -304 )
 z_index = -20
 
@@ -118,7 +119,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Light Stuff/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 56, 368, 344, 368, 336, 384, 56, 384 )
+polygon = PoolVector2Array( 48, 368, 344, 368, 336, 384, 56, 384 )
 
 [node name="Ceiling Lamp" parent="." index="5" instance=ExtResource( 6 )]
 
