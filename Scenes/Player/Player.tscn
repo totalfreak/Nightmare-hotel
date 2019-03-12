@@ -54,7 +54,7 @@ custom_solver_bias = 0.0
 radius = 16.0
 height = 25.0
 
-[node name="Player" type="RigidBody2D" groups=[
+[node name="Player" type="RigidBody2D" index="0" groups=[
 "Player",
 ]]
 
@@ -104,7 +104,7 @@ position = Vector2( 0, 32 )
 
 visible = false
 position = Vector2( -2, -1 )
-frame = 1
+frame = 3
 
 [node name="Background" parent="." index="4" instance=ExtResource( 11 )]
 
@@ -169,5 +169,9 @@ shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Z Index" ]
+
+[node name="ThrowableContainer" type="Node2D" parent="." index="8"]
+
+position = Vector2( 0, 19 )
 
 
