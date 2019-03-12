@@ -13,6 +13,8 @@ var global_mouse
 
 var player
 
+var current_scene
+var old_scene
 
 func _ready():
 	pass
@@ -57,8 +59,11 @@ func exit_ventilation(exit_pos):
 	#player.gravity_scale = 2.5
 
 func _Change_Scene(var newScene):
+	old_scene = get_tree().current_scene.get_filename()
+	print(old_scene)
+	current_scene = newScene
 	get_tree().change_scene(newScene)
 	pass
 
 func player_death():
-	_Change_Scene("res://Scenes/Worlds/Rooms/Kitchen.tscn")
+	_Change_Scene("res://Scenes/UI/DeathScreen.tscn")

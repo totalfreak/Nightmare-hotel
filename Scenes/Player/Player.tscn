@@ -104,7 +104,7 @@ position = Vector2( 0, 32 )
 
 visible = false
 position = Vector2( -2, -1 )
-frame = 1
+frame = 3
 
 [node name="Background" parent="." index="4" instance=ExtResource( 11 )]
 
