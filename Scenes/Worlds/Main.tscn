@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Props/ThrowableObject.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Props/Umbrella.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -18,7 +18,7 @@ _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="Fire" parent="Player" index="3"]
 
-frame = 2
+frame = 3
 
 [node name="Torch2" parent="." index="1" instance=ExtResource( 2 )]
 

@@ -10,7 +10,7 @@ closed = true
 cull_mode = 2
 polygon = PoolVector2Array( 32, 8, 8, -8, 0, -8, -24, 8, -24, 8, 0, -16, 8, -16, 32, 8 )
 
-[node name="Ceiling Lamp" type="Node2D"]
+[node name="Ceiling Lamp" type="Node2D" index="0"]
 
 position = Vector2( 836, 150 )
 __meta__ = {
@@ -65,8 +65,8 @@ shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 0.0773333 )
 shadow_buffer_size = 2048
 shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
+shadow_filter = 1
+shadow_filter_smooth = 16.0
 shadow_item_cull_mask = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Range", "Shadow", "Z Index" ]
