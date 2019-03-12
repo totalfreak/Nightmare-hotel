@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/sprites/Vent.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/Vent2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Ventilation.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Stair Area.gd" type="Script" id=3]
 [ext_resource path="res://Tilesets/Ventilation.tres" type="TileSet" id=4]
@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="Ventilation" type="Node2D"]
+[node name="Ventilation" type="Node2D" index="0"]
 
 position = Vector2( 160, 352 )
 z_index = -1
@@ -155,7 +155,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 65535, 0, 0, 8, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0 )
+tile_data = PoolIntArray( 65535, 0, 0, 8, 0, 0, 131071, 0, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 0, 0 )
 _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [connection signal="body_entered" from="Vent Door/Vent Area2D" to="Vent Door/Vent Area2D" method="_on_Vent_Area2D_body_entered"]

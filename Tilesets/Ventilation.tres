@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=2 format=2]
+[gd_resource type="TileSet" load_steps=3 format=2]
 
-[ext_resource path="res://assets/sprites/Vent.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/VentStair.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/VentBackground.png" type="Texture" id=2]
 
 [resource]
 
@@ -14,7 +15,7 @@
 0/navigation_offset = Vector2( 32, 32 )
 0/shapes = [  ]
 1/name = "Vent2"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 64, 64 )
