@@ -4,7 +4,7 @@ var OGowner
 var playerInside = false
 var isPickedUp = false
 var throwOffset = Vector2(0,0)
-var throwForce = 20000
+var throwForce = 30000
 
 func _ready():
 	OGowner = self.get_owner()
