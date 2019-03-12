@@ -6,7 +6,7 @@
 [ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=4]
 [ext_resource path="res://Scenes/Ventiation/Ventilation.tscn" type="PackedScene" id=5]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -16,7 +16,7 @@ _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="Fire" parent="Player" index="3"]
 
-frame = 0
+frame = 1
 
 [node name="Torch2" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -26,12 +26,10 @@ position = Vector2( 728, 320 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
 
-visible = false
 color = Color( 0.339844, 0.339844, 0.339844, 1 )
 
 [node name="Ceiling Lamp" parent="." index="3" instance=ExtResource( 3 )]
 
-editor/display_folded = false
 position = Vector2( 464, 232 )
 
 [node name="Ceiling Lamp" parent="Ceiling Lamp" index="0"]

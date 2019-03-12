@@ -98,6 +98,9 @@ func leave_light():
 		$Fire.visible = false
 
 
+func _process(delta):
+	pass
+
 #func _Jump():
 #	motion.y = -jumpSpeed
 #	var particle = jumpParticle.instance()

@@ -79,7 +79,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Radial Accel", "Scale", "Spread", "Trail" ]
 
-[node name="Fire" type="AnimatedSprite" index="0"]
+[node name="Fire" type="AnimatedSprite"]
 
 modulate = Color( 1, 1, 1, 0.588235 )
 self_modulate = Color( 1, 1, 1, 0.588235 )
@@ -98,7 +98,7 @@ texture = ExtResource( 5 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.84375, 0.555359, 0.382324, 1 )
-energy = 1.0
+energy = 0.5
 mode = 0
 range_height = 0.0
 range_z_min = -1024

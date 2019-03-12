@@ -42,6 +42,7 @@ func enter_ventilation(enter_pos):
 	player.set_collision_mask_bit(3, true)
 	player.global_position = enter_pos
 	player.inside_vent = true
+	player.get_node("Ventilation Light2D").visible = true
 	#player.gravity_scale = 0
 
 func exit_ventilation(exit_pos):
@@ -52,6 +53,7 @@ func exit_ventilation(exit_pos):
 	player.set_collision_mask_bit(3, false)
 	player.global_position = exit_pos
 	player.inside_vent = false
+	player.get_node("Ventilation Light2D").visible = false
 	#player.gravity_scale = 2.5
 
 func _Change_Scene(var newScene):
