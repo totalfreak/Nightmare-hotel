@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=2]
+
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/VFX/Torch.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Ventiation/Ventilation.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Worlds/Rooms/Kitchen.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Enemy/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Ventiation/Ventilation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Worlds/Rooms/Kitchen.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node2D" index="0"]
+
+[node name="Main" type="Node2D"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -15,6 +15,7 @@ editor/display_folded = true
 position = Vector2( -80, 344 )
 collision_layer = 3
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
+
 
 [node name="Torch2" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -24,28 +25,17 @@ position = Vector2( 728, 320 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
 
-visible = false
 color = Color( 0.339844, 0.339844, 0.339844, 1 )
 
-[node name="Ceiling Lamp" parent="." index="3" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-position = Vector2( 0, 40 )
-
-[node name="Ceiling Lamp" parent="Ceiling Lamp" index="0"]
-
-can_sleep = true
-linear_velocity = Vector2( 25, 0 )
-
-[node name="Ventilation" parent="." index="4" instance=ExtResource( 4 )]
+[node name="Ventilation" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 48, 368 )
 
-[node name="Kitchen" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Kitchen" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 632, -112 )
 
-[node name="Kitchen2" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Kitchen2" parent="." index="5" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( -200, -112 )
@@ -60,5 +50,4 @@ position = Vector2( 232, 336 )
 
 
 [editable path="Player"]
-[editable path="Ceiling Lamp"]
 [editable path="Kitchen2"]

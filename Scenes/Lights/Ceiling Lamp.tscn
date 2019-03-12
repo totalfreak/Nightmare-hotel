@@ -10,7 +10,7 @@ closed = true
 cull_mode = 2
 polygon = PoolVector2Array( 32, 8, 8, -8, 0, -8, -24, 8, -24, 8, 0, -16, 8, -16, 32, 8 )
 
-[node name="Ceiling Lamp" type="Node2D" index="0"]
+[node name="Ceiling Lamp" type="Node2D"]
 
 position = Vector2( 836, 150 )
 __meta__ = {

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/Camera1.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprites/Backgrounds/kitchen_bg.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=6]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 
@@ -12,7 +13,7 @@ closed = true
 cull_mode = 0
 polygon = PoolVector2Array( 56, 368, 344, 368, 336, 384, 56, 384 )
 
-[node name="Kitchen" type="Node2D"]
+[node name="Kitchen" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -38,6 +39,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -53,6 +55,7 @@ polygon = PoolVector2Array( 32, 40, 800, 32, 800, 552, 32, 552 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 408, 288 )
 anchor_mode = 1
 rotating = false
@@ -93,6 +96,8 @@ region_enabled = false
 
 [node name="Light Stuff" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Light Stuff" index="0"]
 
 occluder = SubResource( 1 )
@@ -113,6 +118,15 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( 56, 368, 344, 368, 336, 384, 56, 384 )
 
+[node name="Ceiling Lamp" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 208, 160 )
+
+[node name="Ceiling Lamp" parent="Ceiling Lamp" index="0"]
+
+linear_velocity = Vector2( 25, 0 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 
+[editable path="Ceiling Lamp"]

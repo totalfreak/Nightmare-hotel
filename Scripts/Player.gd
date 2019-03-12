@@ -106,7 +106,7 @@ func _process(delta):
 	elif timeInLight > 0:
 		timeInLight -= delta
 	
-	if timeInLight > maxTimeInLight and not dead:
+	if timeInLight > maxTimeInLight:
 		_Die()
 
 #func _Jump():
@@ -130,9 +130,9 @@ func _process(delta):
 
 
 func _Die():
-	dead = true
-	Globals.player_death()
-	pass
+	if not dead:
+		dead = true
+		Globals.player_death()
 
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
