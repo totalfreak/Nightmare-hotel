@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scenes/NPM/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/NPM/DetectionArea.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/NPM/Sprite-0002.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/NPM/Sprite-0003.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/NPM/Sprite-0004.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/NPM/Sprite-0005.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/NPM/Sprite-0006.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/NPM/Sprite-0007.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/NPM/Sprite-0008.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/NPM/Sprite-0009.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Enemy/DetectionArea.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Enemy/Sprite-0002.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Enemy/Sprite-0003.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Enemy/Sprite-0004.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Enemy/Sprite-0005.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Enemy/Sprite-0006.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Enemy/Sprite-0007.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Enemy/Sprite-0008.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Enemy/Sprite-0009.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -36,7 +36,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Enemy" type="KinematicBody2D" index="0"]
+[node name="Enemy" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

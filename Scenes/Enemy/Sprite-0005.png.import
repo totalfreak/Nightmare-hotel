@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sprite-0009.png-f858c6a7e3eb968f2722222a1cc3e2c4.stex"
+path="res://.import/Sprite-0005.png-6a574f4d678c534cae1aad6dd599bebf.stex"
 
 [deps]
 
-source_file="res://Scenes/NPM/Sprite-0009.png"
-dest_files=[ "res://.import/Sprite-0009.png-f858c6a7e3eb968f2722222a1cc3e2c4.stex" ]
+source_file="res://Scenes/Enemy/Sprite-0005.png"
+dest_files=[ "res://.import/Sprite-0005.png-6a574f4d678c534cae1aad6dd599bebf.stex" ]
 
 [params]
 
