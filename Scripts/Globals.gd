@@ -67,5 +67,12 @@ func _Change_Scene(var newScene):
 	get_tree().change_scene(newScene)
 	pass
 
+<<<<<<< HEAD
 func player_death():
 	_Change_Scene("res://Scenes/UI/DeathScreen.tscn")
+=======
+func throw_object():
+	player.set
+	pass
+
+>>>>>>> added ability to pick up and throw objects
