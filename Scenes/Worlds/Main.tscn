@@ -6,17 +6,18 @@
 [ext_resource path="res://Scenes/Worlds/Rooms/Kitchen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Props/ThrowableObject.tscn" type="PackedScene" id=5]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
+editor/display_folded = true
 position = Vector2( -80, 344 )
 collision_layer = 3
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="Fire" parent="Player" index="3"]
 
-frame = 3
+frame = 0
 
 [node name="Torch2" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -30,7 +31,7 @@ color = Color( 0.339844, 0.339844, 0.339844, 1 )
 
 [node name="Ventilation" parent="." index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 48, 368 )
+position = Vector2( 24, 368 )
 
 [node name="Kitchen" parent="." index="4" instance=ExtResource( 4 )]
 

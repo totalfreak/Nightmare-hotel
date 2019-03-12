@@ -97,6 +97,8 @@ region_enabled = false
 
 [node name="Light Stuff" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Light Stuff" index="0"]
 
 occluder = SubResource( 1 )
@@ -120,6 +122,7 @@ polygon = PoolVector2Array( 56, 368, 344, 368, 336, 384, 56, 384 )
 
 [node name="Ceiling Lamp" parent="." index="5" instance=ExtResource( 6 )]
 
+editor/display_folded = true
 position = Vector2( 208, 160 )
 
 [node name="Ceiling Lamp" parent="Ceiling Lamp" index="0"]

@@ -24,14 +24,14 @@ func _process(delta):
 	pass
 
 func throwObject(delta):
-	var mousePos = (get_global_mouse_position() - self.global_position).normalized() * throwForce * delta
+	var throwDir = (get_global_mouse_position() - self.global_position).normalized() * (throwForce * (mass )) * delta
 	var tempGlobal = self.global_position
 	Globals.player.get_node("ThrowableContainer").remove_child(self)
 	OGowner.add_child(self)
 	self.global_position = tempGlobal 
 	self.set_owner(OGowner)
 	self.mode = RigidBody2D.MODE_RIGID
-	apply_impulse(throwOffset, mousePos)
+	apply_impulse(throwOffset, throwDir)
 	set_collision_layer_bit(3, true)
 	set_collision_mask_bit(3, true)
 	set_collision_layer_bit(4, true)
