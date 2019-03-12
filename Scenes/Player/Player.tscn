@@ -21,6 +21,11 @@ light_mode = 0
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Run",
@@ -28,17 +33,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Fall",
 "speed": 5.0
 } ]
 
@@ -101,11 +101,17 @@ position = Vector2( 0, 32 )
 
 [node name="Fire" parent="." index="3" instance=ExtResource( 10 )]
 
-visible = false
 position = Vector2( -2, -1 )
+frame = 2
 
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="Background" parent="." index="4" instance=ExtResource( 11 )]
 
+position = Vector2( -1700, -945 )
+scale = Vector2( 2.625, 2.625 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
+
+visible = false
 anchor_mode = 1
 rotating = false
 current = true
@@ -130,12 +136,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Editor", "Smoothing" ]
 
-[node name="Background" parent="Camera2D" index="0" instance=ExtResource( 11 )]
-
-position = Vector2( -1700, -945 )
-scale = Vector2( 2.625, 2.625 )
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="." index="5"]
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="." index="6"]
 
 position = Vector2( 0, 3 )
 shape = SubResource( 4 )

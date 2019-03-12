@@ -45,7 +45,7 @@ polygon = PoolVector2Array( 32, 40, 800, 32, 800, 552, 32, 552 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
-position = Vector2( 408, 288 )
+position = Vector2( 376, 288 )
 anchor_mode = 1
 rotating = false
 current = false

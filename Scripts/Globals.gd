@@ -1,5 +1,6 @@
 extends Node2D
 
+
 const GRAVITY = 20
 
 var ray
@@ -12,9 +13,6 @@ var global_mouse
 
 var player
 
-var angle = 0
-var max_angle = 360
-var angle_step = 5
 
 func _ready():
 	pass
@@ -58,3 +56,5 @@ func exit_ventilation(exit_pos):
 
 func _Change_Scene(var newScene):
 	get_tree().change_scene(newScene)
+	pass
+
