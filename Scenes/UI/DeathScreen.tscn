@@ -7,7 +7,7 @@
 [sub_resource type="Animation" id=1]
 
 resource_name = "Start"
-length = 1.0
+length = 2.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -21,6 +21,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0.785156, 0.150284, 0.150284, 0 ), Color( 0.785156, 0.150284, 0.150284, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main Menu Button:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Retry Button:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="DynamicFont" id=2]
@@ -84,7 +108,7 @@ use_top_left = false
 
 [node name="Label" type="Label" parent="CenterContainer" index="0"]
 
-modulate = Color( 0.785156, 0.150284, 0.150284, 1 )
+modulate = Color( 0.785156, 0.150284, 0.150284, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -113,6 +137,7 @@ position = Vector2( -142.297, -42.7641 )
 
 [node name="Main Menu Button" type="Button" parent="." index="3"]
 
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -136,10 +161,11 @@ group = null
 text = "Main Menu"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Visibility", "custom_fonts" ]
 
 [node name="Retry Button" type="Button" parent="." index="4"]
 
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -163,7 +189,7 @@ group = null
 text = "Retry"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Visibility", "custom_fonts" ]
 
 [connection signal="pressed" from="Main Menu Button" to="." method="_on_Main_Menu_Button_pressed"]
 

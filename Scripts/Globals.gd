@@ -59,8 +59,8 @@ func exit_ventilation(exit_pos):
 	#player.gravity_scale = 2.5
 
 func _Change_Scene(var newScene):
+	# Save the prior scene
 	old_scene = get_tree().current_scene.get_filename()
-	print(old_scene)
 	current_scene = newScene
 	get_tree().change_scene(newScene)
 	pass

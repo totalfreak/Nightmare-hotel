@@ -105,7 +105,6 @@ func _process(delta):
 		timeInLight += delta
 	elif timeInLight > 0:
 		timeInLight -= delta
-	print(timeInLight)
 	
 	if timeInLight > maxTimeInLight and not dead:
 		_Die()
