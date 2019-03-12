@@ -107,7 +107,7 @@ func _process(delta):
 		timeInLight -= delta
 	
 	if timeInLight > maxTimeInLight:
-		#_Die()
+		_Die()
 		pass
 
 #func _Jump():

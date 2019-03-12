@@ -4,7 +4,7 @@
 [ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/Camera1.gd" type="Script" id=3]
 
-[node name="Kitchen" type="Node2D"]
+[node name="Kitchen" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -31,7 +31,6 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -43,7 +42,7 @@ audio_bus_name = "Master"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 32, 40, 1320, 32, 1320, 552, 32, 552 )
+polygon = PoolVector2Array( 0, 0, 1344, 0, 1344, 576, 0, 576 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
