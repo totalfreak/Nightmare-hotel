@@ -16,7 +16,7 @@ func _process(delta):
 		isPickedUp = true
 		pickUpObject()
 
-	if Input.is_action_just_pressed("Throw") and isPickedUp == true:
+	if Input.is_action_just_pressed("throw") and isPickedUp == true:
 		isPickedUp = false
 		throwObject(delta)
 	
