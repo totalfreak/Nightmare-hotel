@@ -26,7 +26,7 @@ func _physics_process(delta):
 
 func check_if_player_in_light(position, length):
 	var space_state = get_world_2d().direct_space_state
-	draw
+	#draw
 	#print((player.global_position - global_position).normalized())
 	# Fire ray from the light position towards player position, at the player physics layer
 	result = space_state.intersect_ray(position, player.global_position, [], 1)
