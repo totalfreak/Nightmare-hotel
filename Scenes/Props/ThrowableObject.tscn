@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 20, 20 )
+extents = Vector2( 26, 26 )
 
 [sub_resource type="OccluderPolygon2D" id=2]
 
@@ -14,7 +14,7 @@ closed = true
 cull_mode = 0
 polygon = PoolVector2Array( -20, -20, 20, -20, 20, 20, -20, 20 )
 
-[node name="ThrowableObject" type="RigidBody2D"]
+[node name="ThrowableObject" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 24
@@ -65,6 +65,7 @@ shape = SubResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." index="3"]
 
+visible = false
 show_behind_parent = true
 occluder = SubResource( 2 )
 light_mask = 1

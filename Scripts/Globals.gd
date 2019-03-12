@@ -46,6 +46,7 @@ func _draw():
 		draw_line(ray[0], ray[1], Color(1, 0, 0))
 		ray_draw_list.remove(i)
 		i += 1
+		
 
 func enter_ventilation(enter_pos):
 	# Disabling the normal collision and mask to only be physics with vent
