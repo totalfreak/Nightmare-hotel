@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
-[ext_resource path="res://Tilesets/SolidTemp.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/Camera1.gd" type="Script" id=3]
 
-[node name="Kitchen" type="Node2D"]
+[node name="Kitchen" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
