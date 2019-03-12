@@ -28,10 +28,12 @@ var floor_h_velocity = 0.0
 onready var jumpParticle = preload("res://Scenes/VFX/JumpDustParticle.tscn")
 
 onready var player = get_node(".")
+
+# Death and light variables
+var timeInLight = 0.0
+export var maxTimeInLight = 1.0
 var entered_light = false
 var amount_of_lights_entered = 0
-
-export var knockbackDelay = 0.5
 
 func _ready():
 	Globals.player = player
@@ -99,7 +101,14 @@ func leave_light():
 
 
 func _process(delta):
-	pass
+	if entered_light:
+		timeInLight += delta
+	elif timeInLight > 0:
+		timeInLight -= delta
+	print(timeInLight)
+	
+	if timeInLight > maxTimeInLight and not dead:
+		_Die()
 
 #func _Jump():
 #	motion.y = -jumpSpeed
@@ -123,7 +132,7 @@ func _process(delta):
 
 func _Die():
 	dead = true
-	
+	Globals.player_death()
 	pass
 
 func _integrate_forces(s):
@@ -192,6 +201,8 @@ func _integrate_forces(s):
 		if not jumping and jump and not is_on_stair:
 			lv.y = -JUMP_VELOCITY
 			jumping = true
+			var particle = jumpParticle.instance()
+			$JumpParticleContainer/JumpParticlePoint.add_child(particle)
 			stopping_jump = false
 			#$sound_jump.play()
 	
@@ -261,7 +272,7 @@ func _integrate_forces(s):
 		lv.y += WALK_ACCEL/5 * step
 	elif is_on_stair:
 		lv.y = 0
-	
+	# Set gravity when on and off a stair
 	if is_on_stair:
 		gravity_scale = 0
 	else:

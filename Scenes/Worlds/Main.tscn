@@ -13,6 +13,7 @@
 position = Vector2( -88, 288 )
 collision_layer = 3
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
+maxTimeInLight = 1.0
 
 [node name="Fire" parent="Player" index="3"]
 

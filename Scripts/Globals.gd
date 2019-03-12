@@ -60,3 +60,5 @@ func _Change_Scene(var newScene):
 	get_tree().change_scene(newScene)
 	pass
 
+func player_death():
+	_Change_Scene("res://Scenes/Worlds/Rooms/Kitchen.tscn")
