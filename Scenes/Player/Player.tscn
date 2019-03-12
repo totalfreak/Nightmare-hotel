@@ -168,10 +168,9 @@ shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Z Index" ]
-=======
+
 [node name="ThrowableContainer" type="Node2D" parent="." index="7"]
 
 position = Vector2( 0, 10 )
->>>>>>> added ability to pick up and throw objects
 
 
