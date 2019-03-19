@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Worlds/Rooms/Kitchen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Props/ThrowableObject.tscn" type="PackedScene" id=5]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -14,10 +14,6 @@ editor/display_folded = true
 position = Vector2( -80, 344 )
 collision_layer = 3
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
-
-[node name="Fire" parent="Player" index="3"]
-
-frame = 3
 
 [node name="Torch2" parent="." index="1" instance=ExtResource( 2 )]
 
