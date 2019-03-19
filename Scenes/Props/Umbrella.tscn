@@ -14,7 +14,7 @@ closed = true
 cull_mode = 0
 polygon = PoolVector2Array( -40, 20, -40, 0, 0, -20, 50, 0, 50, 20 )
 
-[node name="Umbrella" type="RigidBody2D" index="0"]
+[node name="Umbrella" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 24
