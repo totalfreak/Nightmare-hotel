@@ -10,6 +10,7 @@ var stopping_jump = false
 var shooting = false
 var inside_vent = false
 var is_on_stair = false
+var handsFull = false
 
 var WALK_ACCEL = 2000.0
 var WALK_DEACCEL = 2000.0
@@ -108,7 +109,7 @@ func _process(delta):
 	
 	if timeInLight > maxTimeInLight:
 		_Die()
-		pass
+	pass
 
 #func _Jump():
 #	motion.y = -jumpSpeed
@@ -289,3 +290,4 @@ func on_stair():
 func left_stair():
 	print("Left stair")
 	is_on_stair = false
+

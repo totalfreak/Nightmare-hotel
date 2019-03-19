@@ -6,21 +6,22 @@ var isPickedUp = false
 var throwOffset = Vector2(0,0)
 var throwForce = 30000
 
+
 func _ready():
 	OGowner = self.get_owner()
 	print(OGowner)
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact") and playerInside and not isPickedUp:
+	if Input.is_action_just_pressed("interact") and playerInside and not Globals.player.handsFull and not isPickedUp:
 		isPickedUp = true
+		Globals.player.handsFull = true
 		pickUpObject()
 
-	if Input.is_action_just_pressed("throw") and isPickedUp == true:
+	if Input.is_action_just_pressed("throw") and Globals.player.handsFull and isPickedUp:
 		isPickedUp = false
+		Globals.player.handsFull = false
 		throwObject(delta)
-	
-	
 	pass
 
 func throwObject(delta):
