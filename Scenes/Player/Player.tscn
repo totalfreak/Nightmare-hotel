@@ -29,7 +29,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -39,7 +39,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Jump",
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -80,25 +80,13 @@ position = Vector2( 0, 32 )
 [node name="Fire" parent="." instance=ExtResource( 10 )]
 visible = false
 position = Vector2( -2, -1 )
+frame = 1
 
 [node name="Background" parent="." instance=ExtResource( 11 )]
 position = Vector2( -1700, -945 )
 scale = Vector2( 2.625, 2.625 )
 z_index = -20
 
-[node name="Camera2D" type="Camera2D" parent="."]
-rotating = true
-current = true
-drag_margin_v_enabled = false
-smoothing_enabled = true
-smoothing_speed = 3.0
-offset_v = -1.0
-drag_margin_left = 0.0
-drag_margin_top = 0.63
-drag_margin_right = 0.0
-drag_margin_bottom = 1.0
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )
