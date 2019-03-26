@@ -32,6 +32,7 @@ func _physics_process(delta):
 			distanceWalked = 0
 		distanceWalked += 1
 	elif chasing:
+		#Stop chasing if player is inside the vent or in the shadows
 		if Globals.player.inside_vent or not Globals.player.entered_light:
 			chasing = false
 		$EnemySprite.frames.set_animation_speed("Walk", 10)

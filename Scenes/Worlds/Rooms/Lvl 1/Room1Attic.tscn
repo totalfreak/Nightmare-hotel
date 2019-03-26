@@ -8,11 +8,10 @@
 [ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
+friction = 0.1
 
 [sub_resource type="OccluderPolygon2D" id=2]
-cull_mode = 2
-polygon = PoolVector2Array( 87.002, 54.2341, 96.5734, 32.7237, 107.31, 3.47424, 106.397, -21.9897, 100.49, -45.8314, 92.3365, -65.2628, 84.6815, -77.496, 73.6979, -88.6477, 59.3856, -98.7178, 48.36, -104.336, 34.0057, -108.872, 18.5278, -111.203, 1.92627, -111.329, -10.8057, -110.872, -26.3256, -107.67, -45.2162, -97.8517, -61.9017, -86.91, -73.0533, -75.9264, -80.3356, -64.36, -89.3242, -46.719, -96.6903, -24.0849, -113.856, 681.942, -192, -132, 18, -216, 312, -160, -12.9979, 663.891, 85.8784, 56.4393 )
+polygon = PoolVector2Array( 28.7109, 418.492, 276.736, -177.312, -187.937, -202.976, -87.1319, 515.013, -86.2649, 36.3169, -93.337, 20.2141, -99.2015, -9.1613, -97.91, -33.5017, -91.0845, -57.8001, -76.5201, -80.9329, -58.6691, -99.6135, -28.086, -118.751, 11.8163, -126.196, 40.567, -122.657, 67.6113, -113.044, 96.7767, -91.239, 115.373, -62.3203, 123.984, -30.1569, 119.778, 13.5309 )
 
 [node name="Attic" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,7 +22,6 @@ script = ExtResource( 1 )
 polygon = PoolVector2Array( 0, 0, 832, 0, 832, 576, 0, 576 )
 
 [node name="Background" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 447.999, 280 )
 scale = Vector2( 1.24445, 1.24445 )
 z_index = -4
@@ -57,6 +55,7 @@ energy = 1.5
 range_height = -7.5
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 0.0773333 )
+shadow_gradient_length = 50.0
 shadow_filter = 1
 shadow_filter_smooth = 16.0
 script = ExtResource( 4 )
@@ -67,14 +66,14 @@ scale = Vector2( 0.571429, 0.571429 )
 occluder = SubResource( 2 )
 
 [node name="occlusion_mask" type="CollisionPolygon2D" parent="Background/Ceiling Lamp/Ceiling Lamp"]
-polygon = PoolVector2Array( -56.0687, 290.196, -85.3969, -81.605, 116.791, -54.7711, 11.5524, 255.607, 155.025, -92.4292, -110.502, -107.094 )
+polygon = PoolVector2Array( -57.0197, 290.505, -85.3969, -81.605, 116.791, -54.7711, 11.5524, 255.607, 155.025, -92.4292, -110.502, -107.094 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
 collision_layer = 17
 collision_mask = 17
 format = 1
-tile_data = PoolIntArray( 589824, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0 )
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, 65535, 0, 0, 13, 0, 0, 131071, 0, 0, 65549, 0, 0, 196607, 0, 0, 131085, 0, 0, 262143, 0, 0, 196621, 0, 0, 327679, 0, 0, 262157, 0, 0, 393215, 0, 0, 327693, 0, 0, 458751, 0, 0, 393229, 0, 0, 524287, 0, 0, 458765, 0, 0, 589823, 0, 0, 524301, 0, 0, 655359, 0, 0, 589824, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0 )
 
 [node name="Not In Room Dark" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -82,3 +81,4 @@ position = Vector2( 448, 288 )
 scale = Vector2( 14, 9 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
