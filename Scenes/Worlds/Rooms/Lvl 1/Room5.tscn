@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://assets/sprites/Backgrounds/emptyRoom.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Ventiation/Ventilation.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=9]
 
-[node name="Room 4" type="Node2D"]
+[node name="Room 5" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -37,6 +38,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="Enemy" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 400, 448 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 
@@ -100,6 +102,11 @@ region_enabled = false
 position = Vector2( 128, 472 )
 
 [node name="Not In Room Dark" parent="." index="6" instance=ExtResource( 8 )]
+
+[node name="Player" parent="." index="7" instance=ExtResource( 9 )]
+
+position = Vector2( 288, 304 )
+collision_layer = 3
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 

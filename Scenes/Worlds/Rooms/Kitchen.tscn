@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprites/Backgrounds/kitchen_bg.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=7]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 
@@ -13,7 +14,7 @@ closed = true
 cull_mode = 0
 polygon = PoolVector2Array( 56, 368, 344, 368, 336, 384, 56, 384 )
 
-[node name="Kitchen" type="Node2D" index="0"]
+[node name="Kitchen" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -128,7 +129,11 @@ position = Vector2( 208, 160 )
 
 linear_velocity = Vector2( 25, 0 )
 
+[node name="Not In Room Dark" parent="." index="6" instance=ExtResource( 7 )]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 
 
 [editable path="Ceiling Lamp"]
