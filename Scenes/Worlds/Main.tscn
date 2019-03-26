@@ -23,7 +23,7 @@ position = Vector2( -80, 344 )
 physics_material_override = SubResource( 1 )
 
 [node name="Fire" parent="Player" index="3"]
-frame = 2
+frame = 0
 
 [node name="Torch2" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
