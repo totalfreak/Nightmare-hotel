@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera1.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/Backgrounds/attic.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=5]
+[ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
@@ -36,5 +37,9 @@ collision_layer = 17
 collision_mask = 17
 format = 1
 tile_data = PoolIntArray( 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0 )
+
+[node name="Not In Room Dark" parent="." instance=ExtResource( 6 )]
+position = Vector2( 448, 288 )
+scale = Vector2( 14, 9 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
