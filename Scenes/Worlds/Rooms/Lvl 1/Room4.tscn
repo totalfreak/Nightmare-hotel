@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=2]
@@ -6,8 +6,7 @@
 [ext_resource path="res://assets/sprites/Backgrounds/emptyRoom.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Ventiation/Ventilation.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=7]
 
 [node name="Room2" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,10 +37,7 @@ position = Vector2( 128, 480 )
 visible = false
 scale = Vector2( 13, 7 )
 
-[node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 92.6316, 104.211 )
-
-[node name="Ceiling Lamp" parent="." instance=ExtResource( 8 )]
+[node name="Ceiling Lamp" parent="." instance=ExtResource( 7 )]
 position = Vector2( 428.632, 263.684 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
