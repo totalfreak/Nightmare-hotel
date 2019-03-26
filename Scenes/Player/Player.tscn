@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/Player/Gobo1.png" type="Texture" id=2]
@@ -13,14 +13,14 @@
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=12]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.1
 
-render_priority = 0
+[sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
 light_mode = 2
 
-[sub_resource type="SpriteFrames" id=2]
-
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
@@ -43,134 +43,77 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RayShape2D" id=3]
-
-custom_solver_bias = 0.0
+[sub_resource type="RayShape2D" id=4]
 length = 36.0
 
-[sub_resource type="CapsuleShape2D" id=4]
-
-custom_solver_bias = 0.0
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 16.0
 height = 25.0
 
-[node name="Player" type="RigidBody2D" index="0" groups=[
+[node name="Player" type="RigidBody2D" groups=[
 "Player",
 ]]
-
-input_pickable = false
 collision_layer = 3
 collision_mask = 2
 mode = 2
-mass = 1.0
-friction = 0.1
-bounce = 0.0
+physics_material_override = SubResource( 1 )
 gravity_scale = 2.5
-custom_integrator = false
-continuous_cd = 0
 contacts_reported = 3
 contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pickable", "collision" ]
-maxTimeInLight = 1.0
 
-[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
-
-material = SubResource( 1 )
-frames = SubResource( 2 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+material = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "Run"
-_sections_unfolded = [ "Material" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -4 )
-shape = SubResource( 3 )
-
-[node name="JumpParticleContainer" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
-
-[node name="JumpParticlePoint" type="Position2D" parent="JumpParticleContainer" index="0"]
-
-position = Vector2( 0, 32 )
-
-[node name="Fire" parent="." index="3" instance=ExtResource( 10 )]
-
-visible = false
-position = Vector2( -2, -1 )
-
-[node name="Background" parent="." index="4" instance=ExtResource( 11 )]
-
-position = Vector2( -1700, -945 )
-scale = Vector2( 2.625, 2.625 )
-
-[node name="Camera2D" type="Camera2D" parent="." index="5"]
-
-visible = false
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-smoothing_speed = 2.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
-_sections_unfolded = [ "Editor", "Smoothing" ]
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="." index="6"]
-
-position = Vector2( 0, 3 )
 shape = SubResource( 4 )
 
-[node name="Ventilation Light2D" type="Light2D" parent="." index="7"]
+[node name="JumpParticleContainer" type="Node2D" parent="."]
+editor/display_folded = true
 
+[node name="JumpParticlePoint" type="Position2D" parent="JumpParticleContainer"]
+position = Vector2( 0, 32 )
+
+[node name="Fire" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( -2, -1 )
+frame = 1
+
+[node name="Background" parent="." instance=ExtResource( 11 )]
+visible = false
+position = Vector2( -1700, -945 )
+scale = Vector2( 2.625, 2.625 )
+z_index = -20
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotating = true
+current = true
+drag_margin_v_enabled = false
+smoothing_enabled = true
+smoothing_speed = 3.0
+offset_v = -1.0
+drag_margin_top = 0.68
+drag_margin_bottom = 1.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 5 )
+
+[node name="Ventilation Light2D" type="Light2D" parent="."]
 visible = false
 z_index = -1
-enabled = true
-editor_only = false
 texture = ExtResource( 12 )
-offset = Vector2( 0, 0 )
 texture_scale = 3.0
-color = Color( 1, 1, 1, 1 )
 energy = 0.7
-mode = 0
 range_height = -1.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
 shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
 shadow_gradient_length = 1.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Range", "Shadow", "Z Index" ]
 
-[node name="ThrowableContainer" type="Node2D" parent="." index="8"]
-
+[node name="ThrowableContainer" type="Node2D" parent="."]
 position = Vector2( 0, 19 )
-
 

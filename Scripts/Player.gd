@@ -36,53 +36,17 @@ export var maxTimeInLight = 1.0
 var entered_light = false
 var amount_of_lights_entered = 0
 
+
 func _ready():
 	Globals.player = player
 	set_process_input(true)
 	pass
 
+
 func _input(event):
 	
 	pass
 
-
-
-#func _Process_Input(var delta):
-#	if Input.is_action_pressed("ui_right"):
-#		direction.x = 1
-#		$Sprite.flip_h = false
-#		# If on floor, play run anim else do either fall or jump anim
-#		_Move(delta, "right")
-#	elif Input.is_action_pressed("ui_left"):
-#		direction.x = -1
-#		$Sprite.flip_h = true
-#		# If on floor, play run anim else do either fall or jump anim
-#		_Move(delta, "left")
-#	elif not is_on_floor():
-#		#Slow down in air if no direction is pressed
-#		if not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
-#			motion.x = lerp(motion.x, 0, dampSpeed/5 * delta)
-#		#Play jump and fall animations
-#		if motion.y < 0:
-#			$Sprite.play("Jump")
-#		elif motion.y > 0:
-#			$Sprite.play("Fall")
-#	else:
-#		motion.x = lerp(motion.x, 0, dampSpeed * delta)
-#		$Sprite.play("Idle")
-#
-#func _Move(var delta, var dir):
-#	if is_on_floor():
-#		$Sprite.play("Run")
-#	else:
-#		if motion.y < 0:
-#			$Sprite.play("Jump")
-#		else:
-#			$Sprite.play("Fall")
-#	if dir == "left":
-#		motion.x = lerp(motion.x, -moveSpeed, dampSpeed * delta)
-#	elif dir == "right":
-#		motion.x = lerp(motion.x, moveSpeed, dampSpeed * delta)
 
 func enter_light():
 	amount_of_lights_entered += 1
@@ -91,6 +55,7 @@ func enter_light():
 		$Fire.visible = true
 		print("Entered Light")
 		print("Amount of lights: ", amount_of_lights_entered)
+
 
 func leave_light():
 	amount_of_lights_entered -= 1
