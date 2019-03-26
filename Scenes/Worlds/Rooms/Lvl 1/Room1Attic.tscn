@@ -1,25 +1,20 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Camera1.gd" type="Script" id=2]
-[ext_resource path="res://assets/sprites/Backgrounds/attic.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/LightChecker.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=7]
-[ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/Backgrounds/attic.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/LightChecker.gd" type="Script" id=4]
+[ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=5]
+[ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=6]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="OccluderPolygon2D" id=2]
 cull_mode = 2
 polygon = PoolVector2Array( 87.002, 54.2341, 96.5734, 32.7237, 107.31, 3.47424, 106.397, -21.9897, 100.49, -45.8314, 92.3365, -65.2628, 84.6815, -77.496, 73.6979, -88.6477, 59.3856, -98.7178, 48.36, -104.336, 34.0057, -108.872, 18.5278, -111.203, 1.92627, -111.329, -10.8057, -110.872, -26.3256, -107.67, -45.2162, -97.8517, -61.9017, -86.91, -73.0533, -75.9264, -80.3356, -64.36, -89.3242, -46.719, -96.6903, -24.0849, -113.856, 681.942, -192, -132, 18, -216, 312, -160, -12.9979, 663.891, 85.8784, 56.4393 )
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.1
-
-[node name="Kitchen" type="Node2D"]
+[node name="Attic" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -27,16 +22,12 @@ script = ExtResource( 1 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PoolVector2Array( 0, 0, 832, 0, 832, 576, 0, 576 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 376, 288 )
-script = ExtResource( 2 )
-
 [node name="Background" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 447.999, 280 )
 scale = Vector2( 1.24445, 1.24445 )
 z_index = -4
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="Ceiling Lamp" type="Node2D" parent="Background"]
 position = Vector2( -12.8563, -92.1427 )
@@ -51,7 +42,7 @@ __meta__ = {
 collision_layer = 17
 mode = 1
 mass = 0.00102041
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 1 )
 can_sleep = false
 linear_damp = 0.4
 angular_damp = 0.0
@@ -59,7 +50,7 @@ angular_damp = 0.0
 [node name="Light2D" type="Light2D" parent="Background/Ceiling Lamp/Ceiling Lamp"]
 position = Vector2( 0, 13 )
 scale = Vector2( 0.571429, 0.571429 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 texture_scale = 20.0
 color = Color( 0.871094, 0.81899, 0.680542, 1 )
 energy = 1.5
@@ -68,28 +59,24 @@ shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 0.0773333 )
 shadow_filter = 1
 shadow_filter_smooth = 16.0
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="occlusion_mask2" type="LightOccluder2D" parent="Background/Ceiling Lamp/Ceiling Lamp"]
 position = Vector2( -2.28571, 11.4286 )
 scale = Vector2( 0.571429, 0.571429 )
-occluder = SubResource( 3 )
+occluder = SubResource( 2 )
 
 [node name="occlusion_mask" type="CollisionPolygon2D" parent="Background/Ceiling Lamp/Ceiling Lamp"]
 polygon = PoolVector2Array( -56.0687, 290.196, -85.3969, -81.605, 116.791, -54.7711, 11.5524, 255.607, 155.025, -92.4292, -110.502, -107.094 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 749, 536 )
-physics_material_override = SubResource( 1 )
-
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 5 )
 collision_layer = 17
 collision_mask = 17
 format = 1
-tile_data = PoolIntArray( 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0 )
+tile_data = PoolIntArray( 589824, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0 )
 
-[node name="Not In Room Dark" parent="." instance=ExtResource( 8 )]
+[node name="Not In Room Dark" parent="." instance=ExtResource( 6 )]
 visible = false
 position = Vector2( 448, 288 )
 scale = Vector2( 14, 9 )
