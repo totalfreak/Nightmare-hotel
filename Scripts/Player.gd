@@ -133,8 +133,9 @@ func _process(delta):
 
 func _Die():
 	if not dead:
-		dead = true
-		Globals.player_death()
+		#dead = true
+		#Globals.player_death()
+		pass
 
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
