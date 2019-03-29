@@ -4,7 +4,7 @@
 [ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Enemy/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sprites/Backgrounds/emptyRoom.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/Backgrounds/LivingRoomLong.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/Vent2.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Ventilation.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Stair Area.gd" type="Script" id=8]
@@ -43,7 +43,7 @@ polygon = PoolVector2Array( 0, 0, 1792, 0, 1792, 576, 0, 576 )
 
 [node name="Background" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 16 )
-scale = Vector2( 2.48889, 1.09375 )
+scale = Vector2( 1.24444, 1.09375 )
 texture = ExtResource( 5 )
 region_enabled = false
 
