@@ -28,10 +28,11 @@ func _process(delta):
 # Vent area2D entered
 func _on_Vent_Area2D_body_entered(body):
 	if body == Globals.player and not canToggleVentilation:
-		
+		self.get_parent().get_material().set_shader_param("shouldOutline", true)
 		canToggleVentilation = true
 
 # Vent area2D exitted
 func _on_Vent_Area2D_body_exited(body):
 	if body == Globals.player and canToggleVentilation:
+		self.get_parent().get_material().set_shader_param("shouldOutline", false)
 		canToggleVentilation = false

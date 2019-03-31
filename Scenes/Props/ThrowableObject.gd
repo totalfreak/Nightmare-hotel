@@ -7,8 +7,11 @@ var throwOffset = Vector2(0,0)
 var throwForce = 30000
 
 
+var my_sprite : Sprite
+
 func _ready():
 	OGowner = self.get_owner()
+	my_sprite = $Sprite
 	print(OGowner)
 	pass
 
@@ -40,7 +43,8 @@ func throwObject(delta):
 	pass
 
 func pickUpObject():
-	OGowner.remove_child(self)
+	
+	self.get_parent().remove_child(self)
 	Globals.player.get_node("ThrowableContainer").add_child(self)
 	self.set_owner(Globals.player.get_node("ThrowableContainer"))
 	self.position = Vector2(0,0)
@@ -54,10 +58,13 @@ func pickUpObject():
 func _on_PlayerEntered_body_entered(body):
 	if body == Globals.player:
 		playerInside = true
+		if not isPickedUp:
+			my_sprite.get_material().set_shader_param("shouldOutline", true)
 	pass
 
 
 func _on_PlayerEntered_body_exited(body):
 	if body == Globals.player:
 		playerInside = false
+		my_sprite.get_material().set_shader_param("shouldOutline", false)
 	pass 

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Shaders/Outline shader.shader" type="Shader" id=1]
+[ext_resource path="res://assets/sprites/Vent2.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Ventilation.gd" type="Script" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/shouldOutline = false
+shader_param/width = 3.0
+shader_param/outline_colour = Color( 1, 0.890196, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[node name="Vent Door" type="Sprite"]
+modulate = Color( 1, 1, 1, 0.607726 )
+material = SubResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="Vent Area2D" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent Area2D"]
+shape = SubResource( 2 )
+
+[node name="EnterPosition" type="Position2D" parent="Vent Area2D"]
+position = Vector2( 0, 0.66666 )
+
+[node name="ExitPosition" type="Position2D" parent="Vent Area2D"]
+
+[connection signal="body_entered" from="Vent Area2D" to="Vent Area2D" method="_on_Vent_Area2D_body_entered"]
+[connection signal="body_exited" from="Vent Area2D" to="Vent Area2D" method="_on_Vent_Area2D_body_exited"]

@@ -1,78 +1,51 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Props/ThrowableObject.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/Outline shader.shader" type="Shader" id=2]
+[ext_resource path="res://assets/sprites/Props/Crate.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="PhysicsMaterial" id=5]
+bounce = 0.2
 
-custom_solver_bias = 0.0
-extents = Vector2( 26, 26 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 2 )
+shader_param/shouldOutline = false
+shader_param/width = 2.0
+shader_param/outline_colour = Color( 1, 0.85098, 0, 1 )
 
-[sub_resource type="OccluderPolygon2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 21, 21 )
 
-closed = true
-cull_mode = 0
+[sub_resource type="OccluderPolygon2D" id=4]
 polygon = PoolVector2Array( -20, -20, 20, -20, 20, 20, -20, 20 )
 
 [node name="ThrowableObject" type="RigidBody2D"]
-
-input_pickable = false
 collision_layer = 24
 collision_mask = 24
-mode = 0
 mass = 2.0
-friction = 1.0
-bounce = 0.2
+physics_material_override = SubResource( 5 )
 gravity_scale = 2.5
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 6 )
 scale = Vector2( 0.65625, 0.65625 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
 
-shape = SubResource( 1 )
-
-[node name="PlayerEntered" type="Area2D" parent="." index="2"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+[node name="PlayerEntered" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerEntered" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerEntered"]
+shape = SubResource( 3 )
 
-shape = SubResource( 1 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="3"]
-
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
 show_behind_parent = true
-occluder = SubResource( 2 )
-light_mask = 1
-_sections_unfolded = [ "Visibility" ]
+occluder = SubResource( 4 )
 
 [connection signal="body_entered" from="PlayerEntered" to="." method="_on_PlayerEntered_body_entered"]
-
 [connection signal="body_exited" from="PlayerEntered" to="." method="_on_PlayerEntered_body_exited"]
-
-
