@@ -37,7 +37,6 @@ __meta__ = {
 }
 
 [node name="Ceiling Lamp" type="RigidBody2D" parent="Background/Ceiling Lamp"]
-collision_layer = 17
 mode = 1
 mass = 0.00102041
 physics_material_override = SubResource( 1 )
@@ -57,7 +56,6 @@ shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 0.0773333 )
 shadow_gradient_length = 50.0
 shadow_filter = 1
-shadow_filter_smooth = 16.0
 script = ExtResource( 4 )
 
 [node name="occlusion_mask2" type="LightOccluder2D" parent="Background/Ceiling Lamp/Ceiling Lamp"]

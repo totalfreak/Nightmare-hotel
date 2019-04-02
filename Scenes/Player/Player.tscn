@@ -62,6 +62,7 @@ gravity_scale = 2.5
 contacts_reported = 3
 contact_monitor = true
 script = ExtResource( 1 )
+maxTimeInLight = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true

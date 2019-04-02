@@ -17,7 +17,7 @@ shader_param/outline_colour = Color( 1, 0.85098, 0, 1 )
 extents = Vector2( 16, 16 )
 
 [sub_resource type="OccluderPolygon2D" id=4]
-polygon = PoolVector2Array( -20, -20, 20, -20, 20, 20, -20, 20 )
+polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 
 [node name="ThrowableObject" type="RigidBody2D"]
 input_pickable = true
@@ -44,7 +44,6 @@ collision_mask = 2
 shape = SubResource( 3 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 show_behind_parent = true
 occluder = SubResource( 4 )
 

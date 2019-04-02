@@ -54,6 +54,7 @@ physics_material_override = SubResource( 2 )
 linear_velocity = Vector2( 25, 0 )
 
 [node name="Light2D" parent="Ceiling Lamp/Ceiling Lamp/Ceiling Lamp" index="0"]
+position = Vector2( 0, 12 )
 shadow_color = Color( 0, 0, 0, 0.301961 )
 
 [node name="Not In Room Dark" parent="." instance=ExtResource( 6 )]

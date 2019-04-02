@@ -20,9 +20,6 @@ editor/display_folded = true
 position = Vector2( 824, -56 )
 physics_material_override = SubResource( 1 )
 
-[node name="Fire" parent="Player" index="4"]
-frame = 3
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
 
