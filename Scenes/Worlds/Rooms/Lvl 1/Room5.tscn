@@ -32,10 +32,9 @@ position = Vector2( 560, 451 )
 position = Vector2( 1144, 451 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( 0, 0, 1792, 0, 1792, 576, 0, 576 )
+polygon = PoolVector2Array( 0, 64, 1792, 64, 1792, 512, 0, 512 )
 
 [node name="Background" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 16 )

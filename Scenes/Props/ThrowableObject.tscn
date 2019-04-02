@@ -48,5 +48,6 @@ visible = false
 show_behind_parent = true
 occluder = SubResource( 4 )
 
+[connection signal="sleeping_state_changed" from="." to="." method="_on_ThrowableObject_sleeping_state_changed"]
 [connection signal="body_entered" from="PlayerEntered" to="." method="_on_PlayerEntered_body_entered"]
 [connection signal="body_exited" from="PlayerEntered" to="." method="_on_PlayerEntered_body_exited"]
