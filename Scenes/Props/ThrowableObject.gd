@@ -75,7 +75,8 @@ func _on_PlayerEntered_body_entered(body):
 		playerInside = true
 		if not isPickedUp:
 			Globals.apply_outline(my_sprite)
-			Globals.apply_interact_text(self)
+			if not interact_text:
+				Globals.apply_interact_text(self)
 	pass
 
 
