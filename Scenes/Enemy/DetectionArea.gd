@@ -5,3 +5,8 @@ func _physics_process(delta):
 	for body in bodies:
 		if body == Globals.player and not Globals.player.hidden and not Globals.player.inside_vent:
 			get_parent().chasing = true
+
+func _on_DetectionArea_body_entered(body):
+	if body == Globals.player: 
+		$DanAngry.play()
+	pass 

@@ -23,18 +23,6 @@ config/icon="res://icon.png"
 
 Globals="*res://Scripts/Globals.gd"
 
-[debug]
-
-settings/stdout/print_fps=true
-
-[display]
-
-window/size/borderless=true
-window/size/fullscreen=true
-window/dpi/allow_hidpi=true
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
-
 [input]
 
 ui_left={
@@ -98,5 +86,4 @@ throw={
 
 [rendering]
 
-quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"
