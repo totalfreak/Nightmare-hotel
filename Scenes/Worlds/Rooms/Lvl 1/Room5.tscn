@@ -12,7 +12,7 @@
 [ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/sprites/Furniture/Table.png" type="Texture" id=11]
 
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -128, -64, 128, -64, 120, -48, -120, -48 )
 
 [node name="Living Room" type="Node2D"]
@@ -23,7 +23,7 @@ tile_set = ExtResource( 2 )
 collision_layer = 17
 collision_mask = 17
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 65536, 0, 0, 65563, 0, 0, 131072, 0, 0, 131099, 0, 0, 196608, 0, 0, 196635, 0, 0, 262144, 0, 0, 262171, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 560, 451 )
@@ -44,6 +44,7 @@ texture = ExtResource( 5 )
 region_enabled = false
 
 [node name="Ventilation" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 272, 480 )
 z_index = -1
 
@@ -110,16 +111,16 @@ position = Vector2( 896, 288 )
 scale = Vector2( 28, 7 )
 
 [node name="Ceiling Lamp" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
 position = Vector2( 400, 80 )
 
 [node name="Table" type="Sprite" parent="."]
-editor/display_folded = true
-position = Vector2( 584, 448 )
+position = Vector2( 272, 456 )
 z_index = -1
 texture = ExtResource( 11 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Table"]
-occluder = SubResource( 3 )
+occluder = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Table"]
 collision_layer = 19

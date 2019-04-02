@@ -33,9 +33,9 @@ func check_if_player_in_light(position, length):
 	
 	#print(result)
 	if result:
-		if result.collider == player and position.distance_to(player.global_position)  / 35 < length:
+		if result.collider == player and position.distance_to(player.global_position)  / 30 < length:
 			ray_draw_list.append([result.position, position])
-			#update()
+			update()
 			#print(result.position.distance_to(position))
 			return result
 

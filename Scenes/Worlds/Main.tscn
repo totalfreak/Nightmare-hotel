@@ -16,21 +16,19 @@ bounce = 0.2
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 352, 1056 )
+editor/display_folded = true
+position = Vector2( 824, -56 )
 physics_material_override = SubResource( 1 )
 
-<<<<<<< HEAD
+
 [node name="Fire" parent="Player" index="4"]
-frame = 0
-=======
-[node name="Fire" parent="Player" index="3"]
-frame = 3
+
 
 [node name="Torch2" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 visible = false
 position = Vector2( 728, 320 )
->>>>>>> door stuff
+frame = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
@@ -49,7 +47,7 @@ position = Vector2( 832, 0 )
 position = Vector2( 64, -576 )
 
 [node name="Living Room" parent="Rooms" instance=ExtResource( 5 )]
-position = Vector2( -1176, 678 )
+position = Vector2( -128, 672 )
 
 [node name="Throwables" type="Node2D" parent="."]
 __meta__ = {

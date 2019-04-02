@@ -17,21 +17,16 @@
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 2 )
 shader_param/isInVent = null
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Run",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -42,12 +37,17 @@ animations = [ {
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
 } ]
 
-[sub_resource type="RayShape2D" id=5]
+[sub_resource type="RayShape2D" id=4]
 length = 36.0
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 16.0
 height = 25.0
 
@@ -78,13 +78,13 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-material = SubResource( 8 )
-frames = SubResource( 4 )
+material = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -4 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="JumpParticleContainer" type="Node2D" parent="."]
 editor/display_folded = true
@@ -95,7 +95,7 @@ position = Vector2( 0, 32 )
 [node name="Fire" parent="." instance=ExtResource( 11 )]
 visible = false
 position = Vector2( -2, -1 )
-frame = 3
+frame = 2
 
 [node name="Background" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1700, -945 )
@@ -104,7 +104,7 @@ z_index = -20
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Ventilation Light2D" type="Light2D" parent="."]
 visible = false
@@ -117,5 +117,5 @@ shadow_enabled = true
 shadow_gradient_length = 1.0
 
 [node name="ThrowableContainer" type="Node2D" parent="."]
-position = Vector2( 0, 19 )
+position = Vector2( 0, 11 )
 

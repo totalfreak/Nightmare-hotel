@@ -69,7 +69,6 @@ region_enabled = false
 position = Vector2( 128, 480 )
 
 [node name="Not In Room Dark" parent="." instance=ExtResource( 6 )]
-visible = false
 scale = Vector2( 13, 7 )
 
 [node name="Ceiling Lamp" parent="." instance=ExtResource( 7 )]

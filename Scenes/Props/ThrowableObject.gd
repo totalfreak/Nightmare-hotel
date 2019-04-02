@@ -4,7 +4,7 @@ var OGowner
 var playerInside = false
 var isPickedUp = false
 var throwOffset = Vector2(0,0)
-var throwForce = 30000
+var throwForce = 120000
 
 
 var my_sprite : Sprite
