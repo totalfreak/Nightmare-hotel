@@ -3,6 +3,7 @@ extends Node2D
 
 const GRAVITY = 20
 
+#warning-ignore:unused_class_variable
 var ray
 
 var result
@@ -20,6 +21,7 @@ func _ready():
 	pass
 
 
+#warning-ignore:unused_argument
 func _physics_process(delta):
 	global_mouse = get_global_mouse_position()
 
@@ -81,6 +83,7 @@ func _Change_Scene(var newScene):
 	# Save the prior scene
 	old_scene = get_tree().current_scene.get_filename()
 	current_scene = newScene
+#warning-ignore:return_value_discarded
 	get_tree().change_scene(newScene)
 	pass
 
@@ -88,8 +91,9 @@ func _Change_Scene(var newScene):
 func player_death():
 	_Change_Scene("res://Scenes/UI/DeathScreen.tscn")
 
-func apply_outline(sprite):
+func apply_outline(var sprite):
+	print(sprite)
 	sprite.get_material().set_shader_param("shouldOutline", true)
 
-func remove_outline(sprite):
+func remove_outline(var sprite):
 	sprite.get_material().set_shader_param("shouldOutline", false)

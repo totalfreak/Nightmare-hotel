@@ -17,7 +17,7 @@ bounce = 0.2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 editor/display_folded = true
-position = Vector2( 824, -56 )
+position = Vector2( 1576, 304 )
 physics_material_override = SubResource( 1 )
 
 [node name="Fire" parent="Player" index="4"]
@@ -34,7 +34,7 @@ __meta__ = {
 [node name="Kitchen" parent="Rooms" instance=ExtResource( 2 )]
 
 [node name="Room 4" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 832, 0 )
+position = Vector2( 894, 0 )
 
 [node name="Attic" parent="Rooms" instance=ExtResource( 4 )]
 position = Vector2( 64, -576 )
