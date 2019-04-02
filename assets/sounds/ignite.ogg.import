@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ignite.ogg-ff83426f6032b15a9014a33ca633d8e9.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

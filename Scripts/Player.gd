@@ -55,9 +55,9 @@ func enter_light():
 	if amount_of_lights_entered >= 1:
 		entered_light = true
 		$Fire.visible = true
+		$Burning.play()
 		print("Entered Light")
-		print("Amount of lights: ", amount_of_lights_entered)
-
+		print("Amount of lights: ", amount_of_lights_entered)	
 
 func leave_light():
 	amount_of_lights_entered -= 1
@@ -66,7 +66,7 @@ func leave_light():
 		print("Left Light")
 		print("Amount of lights: ", amount_of_lights_entered)
 		$Fire.visible = false
-
+		$Burning.stop()
 
 func _process(delta):
 	if entered_light:
