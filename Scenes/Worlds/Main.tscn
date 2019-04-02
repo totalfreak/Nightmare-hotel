@@ -20,15 +20,8 @@ editor/display_folded = true
 position = Vector2( 824, -56 )
 physics_material_override = SubResource( 1 )
 
-
 [node name="Fire" parent="Player" index="4"]
-
-
-[node name="Torch2" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
-visible = false
-position = Vector2( 728, 320 )
-frame = 1
+frame = 0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
