@@ -75,14 +75,9 @@ func _on_PlayerEntered_body_entered(body):
 		playerInside = true
 		if not isPickedUp:
 			Globals.apply_outline(my_sprite)
-<<<<<<< HEAD
 			if not interact_text:
 				Globals.apply_interact_text(self)
-=======
-	
-	if body == get_node("TileMap"):
-		$AudioStreamPlayer.play()
->>>>>>> git told me to commit
+
 	pass
 
 

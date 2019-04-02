@@ -22,7 +22,6 @@ polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 
 [node name="ThrowableObject" type="RigidBody2D" groups=[
 "Throwable",
-"Interactable",
 ]]
 input_pickable = true
 collision_layer = 24
