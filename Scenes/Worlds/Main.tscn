@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
@@ -8,6 +9,7 @@
 [ext_resource path="res://Scenes/Worlds/Rooms/Lvl 1/Room4.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Props/ThrowableObject.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=8]
+
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
@@ -22,6 +24,7 @@ position = Vector2( 22, 20 )
 editor/display_folded = true
 position = Vector2( 1082, 1048 )
 physics_material_override = SubResource( 1 )
+
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
@@ -64,6 +67,7 @@ __meta__ = {
 position = Vector2( 650, 420 )
 physics_material_override = SubResource( 2 )
 
+
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Door" parent="Doors" instance=ExtResource( 8 )]
@@ -73,6 +77,7 @@ other_door_path = NodePath("../Door2")
 [node name="Door2" parent="Doors" instance=ExtResource( 8 )]
 position = Vector2( 2186, 947 )
 other_door_path = NodePath("../Door")
+
 
 
 [editable path="Player"]

@@ -15,6 +15,7 @@ func _ready():
 func _process(delta):
 	# If interact is pressed, and is standing on a vent
 	if Input.is_action_just_pressed("interact") and canToggleVentilation:
+		$AudioStreamPlayer2D.play()
 		# Checking if player is inside or outside vent
 		if Globals.player.inside_vent:
 			Globals.exit_ventilation(exit_pos.global_position)

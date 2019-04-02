@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy/DetectionArea.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Enemy/Sprite-0008.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Enemy/Sprite-0009.png" type="Texture" id=10]
 [ext_resource path="res://assets/sounds/enemyWalkSlower.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/sounds/Danangry.wav" type="AudioStream" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 32.0
@@ -21,14 +22,14 @@ extents = Vector2( 232, 8 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Walk",
 "speed": 5.0
 } ]
 
@@ -62,4 +63,8 @@ volume_db = -8.813
 autoplay = true
 max_distance = 700.0
 attenuation = 0.535887
+
+[node name="DanAngry" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = 11.316
 
