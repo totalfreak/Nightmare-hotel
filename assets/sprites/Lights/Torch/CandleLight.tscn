@@ -20,7 +20,8 @@ color = Color( 1, 1, 1, 0.784314 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 1 )
-energy = 0.4
+texture_scale = 2.0
+energy = 0.6
 
 [node name="Particles2D" type="Particles2D" parent="Light2D"]
 scale = Vector2( 0.3, 0.3 )

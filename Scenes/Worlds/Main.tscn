@@ -14,14 +14,15 @@ friction = 0.1
 bounce = 0.2
 
 [node name="Main" type="Node2D"]
+position = Vector2( 22, 20 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 editor/display_folded = true
-position = Vector2( 176, 1112 )
+position = Vector2( 824, -56 )
 physics_material_override = SubResource( 1 )
 
 [node name="Fire" parent="Player" index="4"]
-frame = 2
+frame = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
@@ -34,7 +35,7 @@ __meta__ = {
 [node name="Kitchen" parent="Rooms" instance=ExtResource( 2 )]
 
 [node name="Room 4" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 894, 0 )
+position = Vector2( 1720, 672 )
 
 [node name="Attic" parent="Rooms" instance=ExtResource( 4 )]
 position = Vector2( 64, -576 )

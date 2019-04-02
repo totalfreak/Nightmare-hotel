@@ -21,6 +21,7 @@ z_index = -4
 [node name="Small Table" type="Sprite" parent="."]
 position = Vector2( 968, 472 )
 scale = Vector2( 2.41255, 3.63637 )
+z_index = -4
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 334, 170, 36, 22 )
@@ -28,6 +29,7 @@ region_rect = Rect2( 334, 170, 36, 22 )
 [node name="Cupboard" type="Sprite" parent="."]
 position = Vector2( 416, 344 )
 scale = Vector2( 2.41255, 3.63637 )
+z_index = -4
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 135, 99, 50, 93 )
@@ -35,6 +37,7 @@ region_rect = Rect2( 135, 99, 50, 93 )
 [node name="WallClock" type="Sprite" parent="."]
 position = Vector2( 968, 288 )
 scale = Vector2( 2.41255, 2.46104 )
+z_index = -4
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 96, 38, 33, 56 )
@@ -42,6 +45,7 @@ region_rect = Rect2( 96, 38, 33, 56 )
 [node name="CandleLight" type="Sprite" parent="."]
 position = Vector2( 968, 408 )
 scale = Vector2( 2.41255, 2.46104 )
+z_index = -4
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 43, 8, 12, 25 )
@@ -53,6 +57,7 @@ scale = Vector2( 0.414499, 0.406332 )
 [node name="Painting2" type="Sprite" parent="."]
 position = Vector2( 280, 272 )
 scale = Vector2( 2.41255, 3.63637 )
+z_index = -4
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 196, 68, 24, 24 )
@@ -60,6 +65,7 @@ region_rect = Rect2( 196, 68, 24, 24 )
 [node name="Painting3" type="Sprite" parent="."]
 position = Vector2( 552, 272 )
 scale = Vector2( 2.41255, 3.63637 )
+z_index = -4
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 196, 68, 24, 24 )
@@ -67,6 +73,7 @@ region_rect = Rect2( 196, 68, 24, 24 )
 [node name="WallTable" type="Sprite" parent="."]
 position = Vector2( 96, 240 )
 scale = Vector2( 2.41255, 2.35151 )
+z_index = -4
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 176, 32, 15 )
@@ -74,6 +81,7 @@ region_rect = Rect2( 0, 176, 32, 15 )
 [node name="Bookerinos" type="Sprite" parent="."]
 position = Vector2( 96, 208 )
 scale = Vector2( 2.41255, 2.35151 )
+z_index = -4
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 2, 130, 28, 14 )
@@ -86,18 +94,17 @@ tile_set = ExtResource( 6 )
 collision_layer = 17
 collision_mask = 17
 format = 1
-tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 131071, 0, 0, 65552, 0, 0, 196607, 0, 0, 131088, 0, 0, 262143, 0, 0, 196624, 0, 0, 327679, 0, 0, 262160, 0, 0, 393215, 0, 0, 327696, 0, 0, 393232, 0, 0, 458768, 0, 0, 589823, 1610612736, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0 )
+tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 131071, 0, 0, 65552, 0, 0, 196607, 0, 0, 131088, 0, 0, 262143, 0, 0, 196624, 0, 0, 327679, 0, 0, 262160, 0, 0, 327696, 0, 0, 393232, 0, 0, 458768, 0, 0, 589823, 1610612736, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-visible = false
 position = Vector2( -0.199982, 0 )
-polygon = PoolVector2Array( -16, 40, 1040, 40, 1032, 520, -16, 512 )
+polygon = PoolVector2Array( -15.8, 64, 1032.2, 64, 1032, 520, -16, 512 )
 
 [node name="Background" parent="." instance=ExtResource( 7 )]
-position = Vector2( 0, 16 )
-scale = Vector2( 1.42222, 1.08333 )
+position = Vector2( -64, 16 )
+scale = Vector2( 1.51111, 1.09583 )
 texture = ExtResource( 8 )
 region_enabled = false
 

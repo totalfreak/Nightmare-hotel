@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var within_door_area = false
 export(NodePath) var other_door_path
 var other_door
@@ -13,6 +14,8 @@ func _ready():
 func _process(delta):
 	if within_door_area and Input.is_action_just_pressed("interact"):
 		Globals.door_entered(other_door.exitPos.global_position)
+		$Area2D/AudioStreamPlayer2D.play()
+
 
 
 func _on_Area2D_body_entered(body):
