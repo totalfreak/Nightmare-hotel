@@ -1,15 +1,21 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/Backgrounds/large_kitchen_bg.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Props/Table.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/Lights/Ceiling Lamp.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/LightChecker.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Props/Table.tscn" type="PackedScene" id=9]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
+
+[sub_resource type="OccluderPolygon2D" id=2]
+cull_mode = 2
+polygon = PoolVector2Array( 45.4999, 50.75, 8, -8, 0, -8, -38.5, 50.75, -10, 7.99991, 0.5, -18.2501, 7.49997, -18.2501, 17.9999, 7.99994 )
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource( 1 )
@@ -33,25 +39,63 @@ z_index = -4
 texture = ExtResource( 4 )
 region_enabled = false
 
-[node name="Ceiling Lamp" parent="." instance=ExtResource( 5 )]
-editor/display_folded = true
+[node name="Ceiling Lamp" type="Node2D" parent="."]
 position = Vector2( 221, 160 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Ceiling Lamp" parent="Ceiling Lamp" index="0"]
-physics_material_override = SubResource( 2 )
+[node name="Ceiling Lamp" type="RigidBody2D" parent="Ceiling Lamp"]
+collision_layer = 17
+physics_material_override = SubResource( 1 )
+can_sleep = false
 linear_velocity = Vector2( 25, 0 )
+linear_damp = 0.4
+angular_damp = 0.0
 
-[node name="Not In Room Dark" parent="." instance=ExtResource( 6 )]
+[node name="Ceiling Lamp" type="Sprite" parent="Ceiling Lamp/Ceiling Lamp"]
+texture = ExtResource( 5 )
+
+[node name="Light2D" type="Light2D" parent="Ceiling Lamp/Ceiling Lamp/Ceiling Lamp"]
+position = Vector2( 0, 9 )
+scale = Vector2( 0.571429, 0.571429 )
+texture = ExtResource( 6 )
+texture_scale = 20.0
+color = Color( 0.871094, 0.81899, 0.680542, 1 )
+energy = 1.5
+range_height = -7.5
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0.937255 )
+script = ExtResource( 7 )
+
+[node name="occlusion_mask" type="LightOccluder2D" parent="Ceiling Lamp/Ceiling Lamp/Ceiling Lamp"]
+position = Vector2( -2.28571, 11.4286 )
+scale = Vector2( 0.571429, 0.571429 )
+occluder = SubResource( 2 )
+
+[node name="occlusion_mask" type="CollisionPolygon2D" parent="Ceiling Lamp/Ceiling Lamp"]
+polygon = PoolVector2Array( -8, 16, -2, 7, 2, 7, 8, 16, 2, 1, -2, 1 )
+
+[node name="Lamp Spring Joint" type="PinJoint2D" parent="Ceiling Lamp"]
+position = Vector2( 0, -102 )
+scale = Vector2( 1.75, 1.75 )
+node_a = NodePath("../Ceiling Lamp")
+node_b = NodePath("../Joint Position")
+disable_collision = false
+
+[node name="Joint Position" type="RigidBody2D" parent="Ceiling Lamp"]
+position = Vector2( 0, -1 )
+mode = 1
+
+[node name="Not In Room Dark" parent="." instance=ExtResource( 8 )]
 visible = false
 modulate = Color( 1, 1, 1, 0.745098 )
 position = Vector2( 224.5, 288 )
 scale = Vector2( 20.9844, 7 )
 
-[node name="Table" parent="." instance=ExtResource( 7 )]
+[node name="Table" parent="." instance=ExtResource( 9 )]
 position = Vector2( 220, 443.5 )
 scale = Vector2( 1.11111, 1.07143 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
-
-[editable path="Ceiling Lamp"]

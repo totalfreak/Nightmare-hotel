@@ -21,6 +21,8 @@ extents = Vector2( 16, 16 )
 polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 
 [node name="ThrowableObject" type="RigidBody2D" groups=[
+
+"Interactable",
 "Throwable",
 ]]
 input_pickable = true
