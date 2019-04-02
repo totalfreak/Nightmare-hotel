@@ -23,7 +23,7 @@ position = Vector2( 824, -56 )
 physics_material_override = SubResource( 1 )
 
 [node name="Fire" parent="Player" index="4"]
-frame = 2
+frame = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
@@ -49,8 +49,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+
 [node name="ThrowableObject" parent="Throwables" instance=ExtResource( 6 )]
-position = Vector2( 705, -45 )
+position = Vector2( 650, 420 )
 physics_material_override = SubResource( 2 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
