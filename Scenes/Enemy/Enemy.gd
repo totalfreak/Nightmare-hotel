@@ -13,6 +13,7 @@ var distanceWalked = 0
 
 func _ready():
 	set_process(true)
+	$WalkingSound.playing = true
 	pass
 
 func _physics_process(delta):
@@ -36,6 +37,7 @@ func _physics_process(delta):
 		if Globals.player.inside_vent or Globals.player.hidden:
 			chasing = false
 		$EnemySprite.frames.set_animation_speed("Walk", 10)
+		$WalkingSound.pitch_scale = 1.3
 		if player.global_position.x < enemy.global_position.x:
 			direction = -1
 		elif player.global_position.x > enemy.global_position.x:

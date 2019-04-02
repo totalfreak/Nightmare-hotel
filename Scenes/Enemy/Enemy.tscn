@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy/DetectionArea.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Enemy/Sprite-0007.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Enemy/Sprite-0008.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Enemy/Sprite-0009.png" type="Texture" id=10]
+[ext_resource path="res://assets/sounds/enemyWalkSlower.ogg" type="AudioStream" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 32.0
@@ -52,4 +53,11 @@ position = Vector2( 0, -64 )
 scale = Vector2( 3.8, 4 )
 frames = SubResource( 3 )
 animation = "Walk"
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = -8.813
+autoplay = true
+max_distance = 700.0
+attenuation = 0.535887
 
