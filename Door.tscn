@@ -14,6 +14,7 @@ shader_param/outline_colour = Color( 1, 0.937255, 0, 1 )
 extents = Vector2( 88, 120 )
 
 [node name="Door" type="Node2D"]
+scale = Vector2( 1, 1.2 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
