@@ -186,6 +186,8 @@ func _integrate_forces(s):
 			new_anim = "Idle"
 		else:
 			new_anim = "Run"
+			if not $Running.is_playing():
+				$Running._set_playing(true)
 	else:
 		# Process logic when the character is in the air
 		if move_left and not move_right:
@@ -205,6 +207,9 @@ func _integrate_forces(s):
 			new_anim = "Jump"
 		else:
 			new_anim = "Fall"
+		
+	if not new_anim == "Run":
+			$Running._set_playing(false)
 	
 	# Check siding
 	if lv.x < 0 and move_left:
