@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Shaders/Outline shader.shader" type="Shader" id=1]
 [ext_resource path="res://assets/sprites/Vent2.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Ventilation.gd" type="Script" id=3]
+[ext_resource path="res://assets/sounds/ventLidOpening.ogg" type="AudioStream" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
@@ -30,6 +31,10 @@ shape = SubResource( 2 )
 position = Vector2( 0, 0.66666 )
 
 [node name="ExitPosition" type="Position2D" parent="Vent Area2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Vent Area2D"]
+stream = ExtResource( 4 )
+volume_db = -6.466
 
 [connection signal="body_entered" from="Vent Area2D" to="Vent Area2D" method="_on_Vent_Area2D_body_entered"]
 [connection signal="body_exited" from="Vent Area2D" to="Vent Area2D" method="_on_Vent_Area2D_body_exited"]
