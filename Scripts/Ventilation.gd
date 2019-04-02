@@ -5,6 +5,8 @@ var exit_pos
 
 var canToggleVentilation = false
 
+var interact_text
+
 func _ready():
 	enter_pos = $EnterPosition
 	exit_pos = $ExitPosition
@@ -29,6 +31,8 @@ func _process(delta):
 func _on_Vent_Area2D_body_entered(body):
 	if body == Globals.player and not canToggleVentilation:
 		Globals.apply_outline(self.get_parent())
+		if not interact_text:
+				Globals.apply_interact_text(self)
 		canToggleVentilation = true
 
 # Vent area2D exitted
@@ -36,3 +40,5 @@ func _on_Vent_Area2D_body_exited(body):
 	if body == Globals.player and canToggleVentilation:
 		Globals.remove_outline(self.get_parent())
 		canToggleVentilation = false
+		if interact_text:
+			Globals.remove_interact_text(self)

@@ -111,8 +111,23 @@ func apply_interact_text(node):
 	node.interact_text.global_position = node.global_position + Vector2(0, -55)
 	pass
 
+
 func remove_interact_text(node):
 	if node.interact_text:
 		node.interact_text.queue_free()
 		node.interact_text = null
 	pass
+
+
+func get_all_enemies(start_node):
+	var result : Array
+	for N in start_node.get_children():
+		if N.get_child_count() > 0:
+			if N.is_in_group("Enemy"):
+				result.append(N)
+			get_all_enemies(N)
+		else:
+			# Do something
+			if N.is_in_group("Enemy"):
+				result.append(N)
+	return result
