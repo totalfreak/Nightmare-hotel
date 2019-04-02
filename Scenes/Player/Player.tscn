@@ -98,7 +98,7 @@ position = Vector2( 0, 32 )
 [node name="Fire" parent="." instance=ExtResource( 11 )]
 visible = false
 position = Vector2( -2, -1 )
-frame = 2
+frame = 3
 
 [node name="Background" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1700, -945 )

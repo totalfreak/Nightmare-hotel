@@ -43,7 +43,7 @@ polygon = PoolVector2Array( 544, 32, 608, 32, 608, 160, 544, 160 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 32, 32 )
-z_index = -10
+z_index = -21
 tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 65535, 0, 0, 8, 0, 0, 131071, 0, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 0, 0 )

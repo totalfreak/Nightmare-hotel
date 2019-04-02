@@ -74,7 +74,7 @@ scale = Vector2( 0.571429, 0.571429 )
 occluder = SubResource( 2 )
 
 [node name="occlusion_mask" type="CollisionPolygon2D" parent="Ceiling Lamp/Ceiling Lamp"]
-polygon = PoolVector2Array( -8, 16, -2, 7, 2, 7, 8, 16, 2, 1, -2, 1 )
+polygon = PoolVector2Array( -6, 16, -2, 7, 2, 7, 6, 16, 2, 1, -2, 1 )
 
 [node name="Lamp Spring Joint" type="PinJoint2D" parent="Ceiling Lamp"]
 position = Vector2( 0, -102 )

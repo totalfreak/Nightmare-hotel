@@ -20,11 +20,8 @@ position = Vector2( 22, 20 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 editor/display_folded = true
-position = Vector2( 1130, 1644 )
+position = Vector2( 1082, 1048 )
 physics_material_override = SubResource( 1 )
-
-[node name="Fire" parent="Player" index="4"]
-frame = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
@@ -44,6 +41,7 @@ position = Vector2( -502, 1244 )
 position = Vector2( 1456, 574 )
 
 [node name="Room2" parent="Rooms" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( -80, 574 )
 
 [node name="emptyRoom" parent="Rooms/Room2" index="0"]

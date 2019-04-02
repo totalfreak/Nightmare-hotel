@@ -30,7 +30,6 @@ polygon = PoolVector2Array( 0, 64, 1024, 64, 1024, 512, 0, 512 )
 
 [node name="Ventilation" parent="." instance=ExtResource( 4 )]
 position = Vector2( 296, 480 )
-z_index = -10
 
 [node name="Not In Room Dark" parent="." instance=ExtResource( 5 )]
 position = Vector2( 512, 256 )
