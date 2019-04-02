@@ -17,6 +17,8 @@ var player
 var current_scene
 var old_scene
 
+var interact_help = preload("res://Scenes/VFX/Interact Help.tscn")
+
 func _ready():
 	pass
 
@@ -97,3 +99,18 @@ func apply_outline(var sprite):
 
 func remove_outline(var sprite):
 	sprite.get_material().set_shader_param("shouldOutline", false)
+
+# Show help text
+func apply_interact_text(node):
+	remove_interact_text(node)
+	node.interact_text = interact_help.instance()
+	node.interact_text.get_node("Container/Interact Text").text = InputMap.get_action_list("interact")[0].as_text()
+	print(InputMap.get_action_list("interact")[0].as_text())
+	get_tree().root.get_node("Main").add_child(node.interact_text)
+	node.interact_text.global_position = node.global_position + Vector2(0, -55)
+	pass
+
+func remove_interact_text(node):
+	if node.interact_text and not node.interact_text.is_queued_for_deletion():
+		node.interact_text.queue_free()
+	pass

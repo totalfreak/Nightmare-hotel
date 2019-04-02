@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Door.gd" type="Script" id=1]
@@ -26,7 +27,9 @@ texture = ExtResource( 3 )
 position = Vector2( 0, 80 )
 scale = Vector2( 0.7, 0.8 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Interactable",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 8, 0 )

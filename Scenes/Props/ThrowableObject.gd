@@ -10,6 +10,8 @@ var entered_light = false
 var amount_of_lights_entered = 0
 var result
 
+var interact_text
+
 var my_sprite : Sprite
 
 func _ready():
@@ -73,6 +75,7 @@ func _on_PlayerEntered_body_entered(body):
 		playerInside = true
 		if not isPickedUp:
 			Globals.apply_outline(my_sprite)
+			Globals.apply_interact_text(self)
 	pass
 
 
@@ -80,6 +83,8 @@ func _on_PlayerEntered_body_exited(body):
 	if body == Globals.player:
 		playerInside = false
 		Globals.remove_outline(my_sprite)
+		if interact_text:
+			Globals.remove_interact_text(self)
 	pass 
 
 

@@ -18,7 +18,9 @@ modulate = Color( 1, 1, 1, 0.607726 )
 material = SubResource( 1 )
 texture = ExtResource( 2 )
 
-[node name="Vent Area2D" type="Area2D" parent="."]
+[node name="Vent Area2D" type="Area2D" parent="." groups=[
+"Interactable",
+]]
 collision_layer = 10
 collision_mask = 10
 script = ExtResource( 3 )
