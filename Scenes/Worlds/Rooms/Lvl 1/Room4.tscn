@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
 position = Vector2( 806, 392 )
+z_index = -4
 
 [node name="Small Table" type="Sprite" parent="."]
 position = Vector2( 968, 472 )
@@ -46,7 +47,7 @@ region_enabled = true
 region_rect = Rect2( 43, 8, 12, 25 )
 
 [node name="Node2D" parent="CandleLight" instance=ExtResource( 4 )]
-position = Vector2( 0, -9.75197 )
+position = Vector2( 0, -13.0026 )
 scale = Vector2( 0.414499, 0.406332 )
 
 [node name="Painting2" type="Sprite" parent="."]
@@ -90,6 +91,7 @@ tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0,
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
 position = Vector2( -0.199982, 0 )
 polygon = PoolVector2Array( -16, 40, 1040, 40, 1032, 520, -16, 512 )
 
