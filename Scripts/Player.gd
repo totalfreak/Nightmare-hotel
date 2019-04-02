@@ -36,6 +36,8 @@ export var maxTimeInLight = 1.0
 var entered_light = false
 var amount_of_lights_entered = 0
 
+var hidden : bool
+
 
 func _ready():
 	Globals.player = player

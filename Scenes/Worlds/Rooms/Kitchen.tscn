@@ -35,7 +35,6 @@ texture = ExtResource( 4 )
 region_enabled = false
 
 [node name="Light Stuff" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Light Stuff"]
 occluder = SubResource( 1 )

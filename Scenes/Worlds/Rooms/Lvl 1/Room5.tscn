@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/sprites/Furniture/Table.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/FurnitureDarkness.gd" type="Script" id=12]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -128, -64, 128, -64, 120, -48, -120, -48 )
@@ -128,7 +129,15 @@ collision_mask = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/StaticBody2D"]
 polygon = PoolVector2Array( -128, -64, 128, -64, 120, -48, -120, -48 )
 
+[node name="Darkness" type="Area2D" parent="Table"]
+script = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/Darkness"]
+polygon = PoolVector2Array( -108, -48, 109, -48, 109, 56, -108, 56 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Ventilation/Stair Area" to="Ventilation/Stair Area" method="_on_Stair_Area_body_entered"]
 [connection signal="body_exited" from="Ventilation/Stair Area" to="Ventilation/Stair Area" method="_on_Stair_Area_body_exited"]
+[connection signal="body_entered" from="Table/Darkness" to="Table/Darkness" method="_on_Darkness_body_entered"]
+[connection signal="body_exited" from="Table/Darkness" to="Table/Darkness" method="_on_Darkness_body_exited"]
