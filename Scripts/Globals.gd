@@ -71,6 +71,11 @@ func exit_ventilation(exit_pos):
 	player.get_node("Ventilation Light2D").visible = false
 	#player.gravity_scale = 2.5
 
+
+func door_entered(exitPos):
+	player.global_position = exitPos
+
+
 func _Change_Scene(var newScene):
 	# Save the prior scene
 	old_scene = get_tree().current_scene.get_filename()

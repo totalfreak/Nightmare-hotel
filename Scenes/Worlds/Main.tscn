@@ -19,8 +19,18 @@ bounce = 0.2
 position = Vector2( 352, 1056 )
 physics_material_override = SubResource( 1 )
 
+<<<<<<< HEAD
 [node name="Fire" parent="Player" index="4"]
 frame = 0
+=======
+[node name="Fire" parent="Player" index="3"]
+frame = 3
+
+[node name="Torch2" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+visible = false
+position = Vector2( 728, 320 )
+>>>>>>> door stuff
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
