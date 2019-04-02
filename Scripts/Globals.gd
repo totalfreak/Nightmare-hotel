@@ -14,6 +14,8 @@ var global_mouse
 
 var player
 
+var hasKey = false
+
 var current_scene
 var old_scene
 
@@ -92,6 +94,9 @@ func _Change_Scene(var newScene):
 
 func player_death():
 	_Change_Scene("res://Scenes/UI/DeathScreen.tscn")
+
+func win():
+	_Change_Scene("res://Scenes/UI/StartMenu.tscn")
 
 func apply_outline(var sprite):
 	print(sprite)

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=11 format=2]
+=======
+[gd_scene load_steps=13 format=2]
+>>>>>>> Made exit door
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Worlds/Rooms/Lvl 1/Room1Attic.tscn" type="PackedScene" id=2]
@@ -7,7 +11,13 @@
 [ext_resource path="res://Scenes/Worlds/Rooms/Lvl 1/Room2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Worlds/Rooms/Lvl 1/Room4.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Props/ThrowableObject.tscn" type="PackedScene" id=7]
+<<<<<<< HEAD
 [ext_resource path="res://Door.tscn" type="PackedScene" id=8]
+=======
+[ext_resource path="res://Scenes/Props/Key.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Props/Exit door.tscn" type="PackedScene" id=10]
+>>>>>>> Made exit door
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
@@ -20,7 +30,11 @@ position = Vector2( 22, 20 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 editor/display_folded = true
+<<<<<<< HEAD
 position = Vector2( 1082, 1048 )
+=======
+position = Vector2( 2298, 908 )
+>>>>>>> Made exit door
 physics_material_override = SubResource( 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -64,16 +78,24 @@ __meta__ = {
 position = Vector2( 650, 420 )
 physics_material_override = SubResource( 2 )
 
+<<<<<<< HEAD
+=======
+[node name="Key" parent="Throwables" instance=ExtResource( 8 )]
+position = Vector2( 2322, 988 )
+
+>>>>>>> Made exit door
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="Door" parent="Doors" instance=ExtResource( 8 )]
+[node name="Door" parent="Doors" instance=ExtResource( 9 )]
 position = Vector2( 2186, 1612 )
 other_door_path = NodePath("../Door2")
 
-[node name="Door2" parent="Doors" instance=ExtResource( 8 )]
+[node name="Door2" parent="Doors" instance=ExtResource( 9 )]
 position = Vector2( 2186, 947 )
 other_door_path = NodePath("../Door")
 
+[node name="Exit door" parent="Doors" instance=ExtResource( 10 )]
+position = Vector2( 2442, 972 )
 
 [editable path="Player"]
 

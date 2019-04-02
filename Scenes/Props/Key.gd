@@ -54,6 +54,7 @@ func throwObject(delta):
 	set_collision_mask_bit(1, true)
 	set_collision_layer_bit(4, true)
 	set_collision_mask_bit(4, true)
+	Globals.hasKey = false
 	pass
 
 func pickUpObject():
@@ -68,6 +69,7 @@ func pickUpObject():
 	set_collision_mask_bit(1, false)
 	set_collision_layer_bit(4, false)
 	set_collision_mask_bit(4, false)
+	Globals.hasKey = true
 	pass
 
 func _on_PlayerEntered_body_entered(body):
