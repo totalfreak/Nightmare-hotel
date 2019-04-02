@@ -1,19 +1,45 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/sprites/Door/door_locked.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Props/Exit_door.gd" type="Script" id=2]
+[ext_resource path="res://Shaders/Outline shader.shader" type="Shader" id=1]
+[ext_resource path="res://assets/sprites/Door/door_locked.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Props/Exit_door.gd" type="Script" id=3]
+[ext_resource path="res://assets/sounds/The Legend of Zelda - Ocarina of Time - Secret Sound-9d3qCPcMgH4.ogg" type="AudioStream" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/shouldOutline = false
+shader_param/width = 3.0
+shader_param/outline_colour = Color( 1, 0.913725, 0, 1 )
 
 [node name="Exit door" type="Node2D"]
 z_index = -4
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+material = SubResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="Sprite"]
-script = ExtResource( 2 )
+editor/display_folded = true
+space_override = 3
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/Area2D"]
-polygon = PoolVector2Array( -80, -112, 88, -112, 88, 112, -80, 112 )
+polygon = PoolVector2Array( -80, -120, 0, -120, 0, 120, -80, 120 )
+
+[node name="Open Sound" type="AudioStreamPlayer2D" parent="Sprite/Area2D" groups=[
+"Interactable",
+]]
+stream = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+editor/display_folded = true
+collision_layer = 31
+collision_mask = 31
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+polygon = PoolVector2Array( -40, -128, 0, -128, 0, 128, -40, 128 )
 
 [connection signal="body_entered" from="Sprite/Area2D" to="Sprite/Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Sprite/Area2D" to="Sprite/Area2D" method="_on_Area2D_body_exited"]

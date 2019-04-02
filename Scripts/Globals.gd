@@ -99,7 +99,6 @@ func win():
 	_Change_Scene("res://Scenes/UI/StartMenu.tscn")
 
 func apply_outline(var sprite):
-	print(sprite)
 	sprite.get_material().set_shader_param("shouldOutline", true)
 
 func remove_outline(var sprite):

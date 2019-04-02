@@ -4,7 +4,7 @@ var OGowner
 var playerInside = false
 var isPickedUp = false
 var throwOffset = Vector2(0,0)
-var throwForce = 120000
+var throwForce = 40000
 
 var entered_light = false
 var amount_of_lights_entered = 0
@@ -46,7 +46,8 @@ func throwObject(delta):
 	
 	self.set_owner(OGowner)
 	self.mode = RigidBody2D.MODE_RIGID
-	self.global_position = tempGlobal + (get_global_mouse_position() - tempGlobal).normalized() * 40
+	# teleport a little towards target as to not move player when throw
+	self.global_position = tempGlobal + (get_global_mouse_position() - tempGlobal).normalized() * 35
 	apply_impulse(throwOffset, throwDir)
 	set_collision_layer_bit(3, true)
 	set_collision_mask_bit(3, true)
