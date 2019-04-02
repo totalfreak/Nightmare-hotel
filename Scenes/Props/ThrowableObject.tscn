@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Props/ThrowableObject.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/Outline shader.shader" type="Shader" id=2]
 [ext_resource path="res://assets/sprites/Props/Crate.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/thump.ogg" type="AudioStream" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.2
@@ -49,6 +50,9 @@ shape = SubResource( 3 )
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 show_behind_parent = true
 occluder = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_ThrowableObject_sleeping_state_changed"]
 [connection signal="body_entered" from="PlayerEntered" to="." method="_on_PlayerEntered_body_entered"]

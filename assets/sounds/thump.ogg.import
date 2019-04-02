@@ -11,5 +11,5 @@ dest_files=[ "res://.import/thump.ogg-5c9b1a2e8c426224ca078f81b08fc8f9.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
