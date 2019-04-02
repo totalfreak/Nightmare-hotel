@@ -9,7 +9,7 @@ friction = 0.0
 
 [sub_resource type="OccluderPolygon2D" id=2]
 cull_mode = 2
-polygon = PoolVector2Array( 32, 8, 8, -8, 0, -8, -24, 8, -24, 8, 0, -16, 8, -16, 32, 8 )
+polygon = PoolVector2Array( 45.4999, 50.75, 8, -8, 0, -8, -38.5, 50.75, -10.5, 8.75, 0, -16, 8, -16, 17.9999, 7.99994 )
 
 [node name="Ceiling Lamp" type="Node2D"]
 position = Vector2( 836, 150 )
