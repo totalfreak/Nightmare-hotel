@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ventLidOpening.ogg-b9c7272ceb34458cc84fa2705617a115.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
