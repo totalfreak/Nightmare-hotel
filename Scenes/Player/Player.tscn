@@ -33,12 +33,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Jump",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
@@ -136,5 +136,5 @@ volume_db = -0.887
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 16 )
-volume_db = -1.078
+volume_db = -80.0
 

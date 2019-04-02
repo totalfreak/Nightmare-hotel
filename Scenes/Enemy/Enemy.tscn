@@ -22,14 +22,14 @@ extents = Vector2( 232, 8 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -53,7 +53,6 @@ shape = SubResource( 2 )
 
 [node name="DanAngry" type="AudioStreamPlayer2D" parent="DetectionArea"]
 stream = ExtResource( 3 )
-volume_db = 11.316
 
 [node name="EnemySprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -64 )
