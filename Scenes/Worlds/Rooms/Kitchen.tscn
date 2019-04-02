@@ -21,7 +21,7 @@ tile_set = ExtResource( 2 )
 collision_layer = 17
 collision_mask = 17
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196620, 0, 0, 262144, 0, 0, 262156, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65536, 0, 0, 65548, 0, 0, 131072, 0, 0, 131084, 0, 0, 196608, 0, 0, 196620, 0, 0, 262144, 0, 0, 262156, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -55,6 +55,9 @@ linear_velocity = Vector2( 25, 0 )
 [node name="Light2D" parent="Ceiling Lamp/Ceiling Lamp/Ceiling Lamp" index="0"]
 position = Vector2( 0, 12 )
 shadow_color = Color( 0, 0, 0, 0.301961 )
+
+[node name="occlusion_mask" parent="Ceiling Lamp/Ceiling Lamp" index="1"]
+polygon = PoolVector2Array( -8, 16, -2, 7, 2, 7, 8, 16, 2, 2, -2, 2 )
 
 [node name="Not In Room Dark" parent="." instance=ExtResource( 6 )]
 modulate = Color( 1, 1, 1, 0.745098 )
