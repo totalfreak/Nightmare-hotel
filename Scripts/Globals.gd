@@ -39,6 +39,7 @@ func check_if_player_in_light(position, length):
 			#print(result.position.distance_to(position))
 			return result
 
+
 func _draw():
 	var i = 0
 	for ray in ray_draw_list:
@@ -87,3 +88,8 @@ func _Change_Scene(var newScene):
 func player_death():
 	_Change_Scene("res://Scenes/UI/DeathScreen.tscn")
 
+func apply_outline(sprite):
+	sprite.get_material().set_shader_param("shouldOutline", true)
+
+func remove_outline(sprite):
+	sprite.get_material().set_shader_param("shouldOutline", false)

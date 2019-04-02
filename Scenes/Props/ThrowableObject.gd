@@ -6,6 +6,9 @@ var isPickedUp = false
 var throwOffset = Vector2(0,0)
 var throwForce = 120000
 
+var entered_light = false
+var amount_of_lights_entered = 0
+var result
 
 var my_sprite : Sprite
 
@@ -30,6 +33,8 @@ func _process(delta):
 		print("Sleeping")
 		set_collision_layer_bit(1, false)
 		set_collision_mask_bit(1, false)
+	
+	
 
 func throwObject(delta):
 	var throwDir = (get_global_mouse_position() - self.global_position).normalized() * (throwForce * (mass )) * delta
@@ -39,7 +44,7 @@ func throwObject(delta):
 	
 	self.set_owner(OGowner)
 	self.mode = RigidBody2D.MODE_RIGID
-	self.global_position = tempGlobal + (get_global_mouse_position() - tempGlobal).normalized() * 50
+	self.global_position = tempGlobal + (get_global_mouse_position() - tempGlobal).normalized() * 40
 	apply_impulse(throwOffset, throwDir)
 	set_collision_layer_bit(3, true)
 	set_collision_mask_bit(3, true)
@@ -67,19 +72,19 @@ func _on_PlayerEntered_body_entered(body):
 	if body == Globals.player:
 		playerInside = true
 		if not isPickedUp:
-			my_sprite.get_material().set_shader_param("shouldOutline", true)
+			Globals.apply_outline(my_sprite)
 	pass
 
 
 func _on_PlayerEntered_body_exited(body):
 	if body == Globals.player:
 		playerInside = false
-		my_sprite.get_material().set_shader_param("shouldOutline", false)
+		Globals.remove_outline(my_sprite)
 	pass 
 
 
 func _on_ThrowableObject_sleeping_state_changed():
-	if self.is_sleeping():
+	if self.is_sleeping() and playerInside:
 		print("Sleeping")
 		set_collision_layer_bit(1, false)
 		set_collision_mask_bit(1, false)

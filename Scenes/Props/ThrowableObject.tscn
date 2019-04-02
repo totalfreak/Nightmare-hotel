@@ -19,7 +19,9 @@ extents = Vector2( 16, 16 )
 [sub_resource type="OccluderPolygon2D" id=4]
 polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 
-[node name="ThrowableObject" type="RigidBody2D"]
+[node name="ThrowableObject" type="RigidBody2D" groups=[
+"Throwable",
+]]
 input_pickable = true
 collision_layer = 24
 collision_mask = 24

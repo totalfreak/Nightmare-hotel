@@ -1,6 +1,6 @@
 extends Light2D
 
-var result
+var player_result
 var player_in_light = false
 
 func _ready():
@@ -8,8 +8,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	result = Globals.check_if_player_in_light(global_position, texture_scale)
-	if result:
+	player_result = Globals.check_if_player_in_light(global_position, texture_scale)
+	if player_result:
 		if not player_in_light:
 			player_in_light = true
 			Globals.player.enter_light()
