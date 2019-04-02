@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/enemyWalkSlower.ogg-c757f1931ef9ad1d8792c0022dcadc08.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/enemyWalkSlower.ogg"
+dest_files=[ "res://.import/enemyWalkSlower.ogg-c757f1931ef9ad1d8792c0022dcadc08.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
