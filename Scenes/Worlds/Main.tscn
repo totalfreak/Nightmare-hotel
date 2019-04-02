@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Worlds/Rooms/Kitchen.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Worlds/Rooms/Lvl 1/Room1Attic.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Worlds/Rooms/Lvl 1/Room5.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Props/ThrowableObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Worlds/Rooms/Lvl 1/Room2.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
@@ -18,11 +19,11 @@ position = Vector2( 22, 20 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 editor/display_folded = true
-position = Vector2( 824, -56 )
+position = Vector2( 778, 500 )
 physics_material_override = SubResource( 1 )
 
 [node name="Fire" parent="Player" index="4"]
-frame = 0
+frame = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.460938, 0.460938, 0.460938, 1 )
@@ -33,15 +34,16 @@ __meta__ = {
 }
 
 [node name="Kitchen" parent="Rooms" instance=ExtResource( 2 )]
+position = Vector2( 946, 576.648 )
 
 [node name="Room 4" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 1720, 672 )
+position = Vector2( 1354, 1244 )
 
 [node name="Attic" parent="Rooms" instance=ExtResource( 4 )]
-position = Vector2( 64, -576 )
+position = Vector2( -11.9763, -2.01978 )
 
 [node name="Living Room" parent="Rooms" instance=ExtResource( 5 )]
-position = Vector2( -128, 672 )
+position = Vector2( -502, 1244 )
 
 [node name="Throwables" type="Node2D" parent="."]
 __meta__ = {
@@ -52,5 +54,11 @@ __meta__ = {
 position = Vector2( 705, -45 )
 physics_material_override = SubResource( 2 )
 
+[node name="Room2" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+position = Vector2( -77.5997, 573.98 )
+
 
 [editable path="Player"]
+
+[editable path="Room2"]
