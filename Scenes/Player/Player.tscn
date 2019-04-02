@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/Player.shader" type="Shader" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=13]
 [ext_resource path="res://assets/sounds/playerWalk.ogg" type="AudioStream" id=14]
 [ext_resource path="res://assets/sounds/ignite.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/sounds/jumpGobbo.wav" type="AudioStream" id=16]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
@@ -25,6 +26,11 @@ shader_param/isInVent = null
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Jump",
@@ -39,11 +45,6 @@ animations = [ {
 "loop": true,
 "name": "Run",
 "speed": 30.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
 } ]
 
 [sub_resource type="RayShape2D" id=4]
@@ -98,7 +99,7 @@ position = Vector2( 0, 32 )
 [node name="Fire" parent="." instance=ExtResource( 11 )]
 visible = false
 position = Vector2( -2, -1 )
-frame = 1
+frame = 2
 
 [node name="Background" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1700, -945 )
@@ -132,4 +133,8 @@ attenuation = 0.466517
 pause_mode = 1
 stream = ExtResource( 15 )
 volume_db = -0.887
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+volume_db = -1.078
 
