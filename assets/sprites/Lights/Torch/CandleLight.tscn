@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/Fire/fire.png" type="Texture" id=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 11.35
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, -98, 0 )
+angular_velocity = 2.4356e-41
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.7
+scale_random = 1.0
+color = Color( 1, 1, 1, 0.784314 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )
+energy = 0.4
+
+[node name="Particles2D" type="Particles2D" parent="Light2D"]
+scale = Vector2( 0.3, 0.3 )
+amount = 3
+speed_scale = 0.3
+randomness = 1.0
+process_material = SubResource( 1 )
+texture = ExtResource( 2 )
+

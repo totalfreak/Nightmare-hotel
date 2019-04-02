@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/Furniture/decoration (1).png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/Lights/Torch/CandleLight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tilesets/BlackTile.tres" type="TileSet" id=6]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=7]
@@ -38,18 +38,16 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 96, 38, 33, 56 )
 
-[node name="WallClock2" type="Sprite" parent="."]
+[node name="CandleLight" type="Sprite" parent="."]
 position = Vector2( 968, 408 )
 scale = Vector2( 2.41255, 2.46104 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 43, 8, 12, 25 )
 
-[node name="Light2D" type="Light2D" parent="WallClock2"]
+[node name="Node2D" parent="CandleLight" instance=ExtResource( 4 )]
 position = Vector2( 0, -9.75197 )
-texture = ExtResource( 4 )
-texture_scale = 0.6
-energy = 0.5
+scale = Vector2( 0.414499, 0.406332 )
 
 [node name="Painting2" type="Sprite" parent="."]
 position = Vector2( 280, 272 )
