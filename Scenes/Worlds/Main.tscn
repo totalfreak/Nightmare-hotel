@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
@@ -12,6 +13,7 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Props/Exit door.tscn" type="PackedScene" id=11]
 
+
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
 
@@ -23,13 +25,16 @@ position = Vector2( 22, 20 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 editor/display_folded = true
+
 position = Vector2( 794, 404 )
+
 physics_material_override = SubResource( 1 )
 
 [node name="Fire" parent="Player" index="4"]
 frame = 3
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
+
 
 [node name="Rooms" type="Node2D" parent="."]
 __meta__ = {
@@ -80,6 +85,7 @@ __meta__ = {
 position = Vector2( 650, 420 )
 physics_material_override = SubResource( 2 )
 
+
 [node name="ThrowableObject2" parent="Throwables" instance=ExtResource( 8 )]
 position = Vector2( 2434, 919 )
 physics_material_override = SubResource( 2 )
@@ -99,6 +105,7 @@ other_door_path = NodePath("../Door")
 
 [node name="Exit door" parent="Doors" instance=ExtResource( 11 )]
 position = Vector2( 2621, 964 )
+
 
 
 [editable path="Player"]
