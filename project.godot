@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Nightmare Hotel"
-run/main_scene="res://Scenes/Worlds/Main.tscn"
+run/main_scene="res://Scenes/UI/StartMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
