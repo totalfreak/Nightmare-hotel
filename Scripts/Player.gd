@@ -266,3 +266,8 @@ func left_stair():
 	print("Left stair")
 	is_on_stair = false
 
+func _on_TouchedByEnemy_body_entered(body):
+	if body == Globals.enemy:
+		_Die()
+		$DeathByenemy.play()
+	pass

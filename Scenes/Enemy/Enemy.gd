@@ -10,6 +10,7 @@ var direction = 1
 
 var walkingRange = 200
 var distanceWalked = 0
+onready var enemy = get_node(".")
 
 func _ready():
 	set_process(true)
@@ -17,7 +18,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	var enemy = self
+	Globals.enemy = enemy
 	var player = Globals.player
 	motion.x = speed * direction
 	

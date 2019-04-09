@@ -13,6 +13,7 @@ var ray_draw_list = []
 var global_mouse
 
 var player
+var enemy
 
 var hasKey = false
 
