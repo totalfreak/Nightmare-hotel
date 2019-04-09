@@ -4,7 +4,7 @@ var OGowner
 var playerInside = false
 var isPickedUp = false
 var throwOffset = Vector2(0,0)
-var throwForce = 25000
+var throwForce = 40000
 
 var entered_light = false
 var amount_of_lights_entered = 0
@@ -46,6 +46,7 @@ func _process(delta):
 			if body.name == "TileMap":
 				if not $ThumpSound.is_playing():
 					$ThumpSound.play()
+					Globals.player.camera.shake(0.2, 20, 2)
 	
 
 func throwObject(delta):

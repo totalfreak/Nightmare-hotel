@@ -7,9 +7,12 @@ var anim = ""
 var siding_left = false
 var jumping = false
 var stopping_jump = false
+#warning-ignore:unused_class_variable
 var shooting = false
+#warning-ignore:unused_class_variable
 var inside_vent = false
 var is_on_stair = false
+#warning-ignore:unused_class_variable
 var handsFull = false
 
 var WALK_ACCEL = 2000.0
@@ -29,6 +32,8 @@ var floor_h_velocity = 0.0
 onready var jumpParticle = preload("res://Scenes/VFX/JumpDustParticle.tscn")
 
 onready var player = get_node(".")
+#warning-ignore:unused_class_variable
+onready var camera = get_node("Camera2D")
 
 # Death and light variables
 var timeInLight = 0.0
@@ -37,6 +42,7 @@ export var canDie = true
 var entered_light = false
 var amount_of_lights_entered = 0
 
+#warning-ignore:unused_class_variable
 var hidden : bool
 
 
@@ -46,6 +52,7 @@ func _ready():
 	pass
 
 
+#warning-ignore:unused_argument
 func _input(event):
 	
 	pass
