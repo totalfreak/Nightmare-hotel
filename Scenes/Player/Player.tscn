@@ -27,6 +27,7 @@ shader_param/isInVent = null
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Fall",
@@ -43,11 +44,22 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
+
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-
 "name": "Run",
 "speed": 30.0
+
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 
 } ]
 
@@ -102,8 +114,10 @@ position = Vector2( 0, 32 )
 
 [node name="Fire" parent="." instance=ExtResource( 11 )]
 position = Vector2( -2, -1 )
+
 z_index = 1
 frame = 0
+
 
 [node name="Background" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1700, -945 )
