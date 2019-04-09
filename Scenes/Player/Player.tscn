@@ -28,26 +28,23 @@ shader_param/isInVent = null
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-
-"name": "Jump",
-
+"name": "Fall",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Run",
-"speed": 30.0
-
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Fall",
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Run",
+"speed": 30.0
 } ]
 
 [sub_resource type="RayShape2D" id=4]
@@ -102,10 +99,7 @@ position = Vector2( 0, 32 )
 [node name="Fire" parent="." instance=ExtResource( 11 )]
 visible = false
 position = Vector2( -2, -1 )
-
-
-
-
+frame = 3
 
 [node name="Background" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1700, -945 )
