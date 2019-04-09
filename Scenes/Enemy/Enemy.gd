@@ -29,12 +29,13 @@ func _physics_process(delta):
 	if not is_on_floor():
 		motion.y += 200
 	
-	$EnemySprite.flip_h = false if direction == 1 else true
+	
 	
 	if not chasing:
 		$EnemySprite.play("Walk")
 		if distanceWalked >= walkingRange:
 			direction = direction * -1
+			self.scale.x *= -1
 			distanceWalked = 0
 		distanceWalked += 1
 	elif chasing and not dazed:
@@ -50,6 +51,7 @@ func _physics_process(delta):
 		else: 
 			$EnemySprite.play("Idle")
 		motion.x = (speed * 2) * direction
+
 	if not dazed:
 		motion = move_and_slide(motion * speed * delta, UP)
 	else:
