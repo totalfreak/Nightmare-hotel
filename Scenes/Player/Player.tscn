@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/Player.shader" type="Shader" id=2]
@@ -29,11 +29,6 @@ shader_param/isInVent = null
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
 "name": "Jump",
 "speed": 5.0
 }, {
@@ -46,6 +41,11 @@ animations = [ {
 "loop": true,
 "name": "Run",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="RayShape2D" id=4]
@@ -54,9 +54,6 @@ length = 36.0
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 16.0
 height = 25.0
-
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 20.0
 
 [node name="Player" type="RigidBody2D" groups=[
 "Player",
@@ -103,7 +100,7 @@ position = Vector2( 0, 32 )
 [node name="Fire" parent="." instance=ExtResource( 11 )]
 visible = false
 position = Vector2( -2, -1 )
-frame = 1
+frame = 2
 
 [node name="Background" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1700, -945 )
@@ -146,9 +143,4 @@ volume_db = -1.078
 stream = ExtResource( 17 )
 volume_db = -1.078
 
-[node name="TouchedByEnemy" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchedByEnemy"]
-shape = SubResource( 6 )
-
-[connection signal="body_entered" from="TouchedByEnemy" to="." method="_on_TouchedByEnemy_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_TouchedByEnemy_body_entered"]
