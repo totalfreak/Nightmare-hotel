@@ -139,3 +139,19 @@ func get_all_enemies(start_node):
 			if N.is_in_group("Enemy"):
 				result.append(N)
 	return result
+	
+func did_move(pos_array, position, upper_limit = 3, change_thresh = 2):
+	pos_array.push_front(position)
+	if pos_array.size() > upper_limit:
+		pos_array.pop_back()
+		var temp_mean_x = 0
+		var temp_mean_y = 0
+		for pos in pos_array:
+			temp_mean_x += abs(int(round(pos.x)))
+			temp_mean_y += abs(int(round(pos.y)))
+		var x = (temp_mean_x/upper_limit)
+		var y = (temp_mean_y/upper_limit)
+		if abs(int(round(x-position.x))) <= change_thresh && abs(int(round(y-position.y))) <= change_thresh:
+			return false
+		else:
+			return true

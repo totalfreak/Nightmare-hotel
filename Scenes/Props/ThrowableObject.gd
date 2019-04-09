@@ -13,6 +13,7 @@ var result
 var interact_text
 
 var my_sprite : Sprite
+var pos_array = []
 
 func _ready():
 	OGowner = self.get_owner()
@@ -39,7 +40,17 @@ func _process(delta):
 		Globals.remove_outline(my_sprite)
 		if interact_text:
 			Globals.remove_interact_text(self)
+	
+	print(get_colliding_bodies())
+	if Globals.did_move(pos_array, self.position):
 		
+		for body in get_colliding_bodies():
+			print("Bump", body.name)
+			if body.name == "TileMap":
+				if $ThumpSound.is_playing():
+					break
+				else:
+					$ThumpSound.play()
 	
 
 func throwObject(delta):
