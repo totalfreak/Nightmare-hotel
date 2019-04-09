@@ -26,8 +26,8 @@ polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 "Throwable",
 ]]
 input_pickable = true
-collision_layer = 24
-collision_mask = 24
+collision_layer = 28
+collision_mask = 28
 mass = 4.0
 physics_material_override = SubResource( 1 )
 gravity_scale = 2.5

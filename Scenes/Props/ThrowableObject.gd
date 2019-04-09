@@ -47,6 +47,8 @@ func _process(delta):
 				if not $ThumpSound.is_playing():
 					$ThumpSound.play()
 					Globals.player.camera.shake(0.2, 20, 2)
+			if body.is_in_group("Enemy"):
+				body.get_hit_by_box()
 	
 
 func throwObject(delta):
@@ -58,7 +60,7 @@ func throwObject(delta):
 	self.set_owner(OGowner)
 	self.mode = RigidBody2D.MODE_RIGID
 	# teleport a little towards target as to not move player when throw
-	self.global_position = tempGlobal + (get_global_mouse_position() - tempGlobal).normalized() * 35
+	self.global_position = tempGlobal + (get_global_mouse_position() - tempGlobal).normalized() * 37
 	apply_impulse(throwOffset, throwDir)
 	set_collision_layer_bit(3, true)
 	set_collision_mask_bit(3, true)
@@ -89,7 +91,7 @@ func _on_PlayerEntered_body_entered(body):
 			Globals.apply_outline(my_sprite)
 			if not interact_text:
 				Globals.apply_interact_text(self)
-
+		
 	pass
 
 

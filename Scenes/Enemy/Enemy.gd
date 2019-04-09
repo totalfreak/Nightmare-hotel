@@ -5,6 +5,7 @@ const UP = Vector2(0, -1)
 var motion = Vector2()
 var speed = 50
 var chasing = false
+var dazed = false
 
 var direction = 1
 
@@ -33,7 +34,7 @@ func _physics_process(delta):
 			direction = direction * -1
 			distanceWalked = 0
 		distanceWalked += 1
-	elif chasing:
+	elif chasing and not dazed:
 		#Stop chasing if player is inside the vent or in the shadows
 		if Globals.player.inside_vent or Globals.player.hidden:
 			chasing = false
@@ -47,3 +48,14 @@ func _physics_process(delta):
 			$EnemySprite.play("Idle")
 		motion.x = (speed * 2) * direction
 	motion = move_and_slide(motion * speed * delta, UP)
+
+func get_hit_by_box():
+	if not dazed:
+		get_dazed()
+
+
+func get_dazed():
+	dazed = true
+
+func get_not_dazed():
+	dazed = false
