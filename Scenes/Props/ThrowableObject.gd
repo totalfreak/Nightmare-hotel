@@ -43,9 +43,7 @@ func _process(delta):
 	
 	print(get_colliding_bodies())
 	if Globals.did_move(pos_array, self.position):
-		
 		for body in get_colliding_bodies():
-			print("Bump", body.name)
 			if body.name == "TileMap":
 				if $ThumpSound.is_playing():
 					break

@@ -140,7 +140,7 @@ func get_all_enemies(start_node):
 				result.append(N)
 	return result
 	
-func did_move(pos_array, position, upper_limit = 3, change_thresh = 2):
+func did_move(pos_array, position, upper_limit = 3, change_thresh = 1):
 	pos_array.push_front(position)
 	if pos_array.size() > upper_limit:
 		pos_array.pop_back()
