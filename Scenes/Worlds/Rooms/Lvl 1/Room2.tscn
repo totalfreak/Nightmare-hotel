@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/Backgrounds/emptyRoom.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sprites/Furniture/NightStandSprite.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/Furniture/BedSprite.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/Furniture/FishPaintingSprite.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/Furniture/PaintingSprite.png" type="Texture" id=10]
 
 [node name="Room2" type="Node2D"]
 script = ExtResource( 1 )
@@ -75,6 +76,11 @@ position = Vector2( 384, 256 )
 scale = Vector2( 5.75, 5.5 )
 z_index = -2
 texture = ExtResource( 9 )
+
+[node name="PaintingSprite" type="Sprite" parent="."]
+position = Vector2( 760, 264 )
+scale = Vector2( 5.875, 5.71875 )
+texture = ExtResource( 10 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
