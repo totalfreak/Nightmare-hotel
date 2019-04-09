@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/VFX/CanvasDarken.tscn" type="PackedScene" id=2]
@@ -10,13 +10,26 @@
 [ext_resource path="res://Scenes/Props/ThrowableObject.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Props/Key.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Props/Exit door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Door.gd" type="Script" id=11]
+[ext_resource path="res://Shaders/Outline shader.shader" type="Shader" id=12]
+[ext_resource path="res://assets/sprites/Door/door3.png" type="Texture" id=13]
+[ext_resource path="res://assets/sounds/doorOpen.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Scenes/Props/Exit door.tscn" type="PackedScene" id=15]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
 
 [sub_resource type="PhysicsMaterial" id=2]
 bounce = 0.2
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 12 )
+shader_param/shouldOutline = false
+shader_param/width = 3.0
+shader_param/outline_colour = Color( 1, 0.937255, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 88, 120 )
 
 [node name="Main" type="Node2D"]
 position = Vector2( 22, 20 )
@@ -27,7 +40,7 @@ position = Vector2( 794, 404 )
 physics_material_override = SubResource( 1 )
 
 [node name="Fire" parent="Player" index="4"]
-frame = 2
+frame = 3
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 
@@ -93,13 +106,38 @@ position = Vector2( 224, 1695 )
 position = Vector2( 2186, 1612 )
 other_door_path = NodePath("../Door2")
 
-[node name="Door2" parent="Doors" instance=ExtResource( 10 )]
+[node name="Door2" type="Node2D" parent="Doors"]
 position = Vector2( 2186, 947 )
+scale = Vector2( 0.8, 1.2 )
+z_index = -4
+script = ExtResource( 11 )
 other_door_path = NodePath("../Door")
 
-[node name="Exit door" parent="Doors" instance=ExtResource( 11 )]
+[node name="Sprite" type="Sprite" parent="Doors/Door2"]
+material = SubResource( 3 )
+texture = ExtResource( 13 )
+
+[node name="Exit" type="Position2D" parent="Doors/Door2"]
+position = Vector2( 0, 80 )
+scale = Vector2( 0.7, 0.8 )
+
+[node name="Area2D" type="Area2D" parent="Doors/Door2" groups=[
+"Interactable",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Door2/Area2D"]
+position = Vector2( 8, 0 )
+shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Doors/Door2/Area2D"]
+stream = ExtResource( 14 )
+volume_db = -20.0
+
+[node name="Exit door" parent="Doors" instance=ExtResource( 15 )]
 position = Vector2( 2621, 964 )
 
+[connection signal="body_entered" from="Doors/Door2/Area2D" to="Doors/Door2" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Doors/Door2/Area2D" to="Doors/Door2" method="_on_Area2D_body_exited"]
 
 [editable path="Player"]
 
