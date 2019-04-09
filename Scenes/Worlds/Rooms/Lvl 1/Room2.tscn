@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/Backgrounds/emptyRoom.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Scenes/Ventiation/Ventilation.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/VFX/Not In Room Dark.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Lights/Ceiling Lamp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/Furniture/NightStandSprite.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/Furniture/BedSprite.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/Furniture/FishPaintingSprite.png" type="Texture" id=9]
 
 [node name="Room2" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,24 +29,48 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
 polygon = PoolVector2Array( 0, 64, 1024, 64, 1024, 512, 0, 512 )
 
 [node name="Ventilation" parent="." instance=ExtResource( 4 )]
 position = Vector2( 296, 480 )
 
 [node name="Not In Room Dark" parent="." instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 512, 256 )
 scale = Vector2( 16, 8 )
 
 [node name="Ceiling Lamp" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
-position = Vector2( 592, 224 )
+position = Vector2( 584, 217 )
 
 [node name="occlusion_mask" parent="Ceiling Lamp/Ceiling Lamp/Ceiling Lamp" index="1"]
 position = Vector2( -2, 11 )
 
 [node name="occlusion_mask" parent="Ceiling Lamp/Ceiling Lamp" index="1"]
 polygon = PoolVector2Array( -16, 29, -2, 7, 2, 7, 16, 29, 2, 2, -2, 2 )
+
+[node name="NightStandSprite" type="Sprite" parent="."]
+position = Vector2( 280, 228 )
+scale = Vector2( 1.77344, 2.125 )
+texture = ExtResource( 7 )
+offset = Vector2( 94.2857, 94.5454 )
+
+[node name="NightStandSprite2" type="Sprite" parent="."]
+position = Vector2( 560, 228 )
+scale = Vector2( 1.77344, 2.125 )
+texture = ExtResource( 7 )
+offset = Vector2( 94.2857, 94.5454 )
+
+[node name="BedSprite" type="Sprite" parent="."]
+position = Vector2( 590, 416 )
+scale = Vector2( 2.21875, 2.125 )
+texture = ExtResource( 8 )
+
+[node name="FishPaintingSprite" type="Sprite" parent="."]
+position = Vector2( 584, 312 )
+scale = Vector2( 5.75, 5.5 )
+texture = ExtResource( 9 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
