@@ -21,9 +21,11 @@ func _process(delta):
 	if within_door_area and Input.is_action_just_pressed("interact"):
 		Globals.door_entered(other_door.exitPos.global_position)
 		$Area2D/AudioStreamPlayer2D.play()
+		enemies = Globals.get_all_enemies(get_tree().root.get_node("Main"))
 		var i = 0
 		for enemy in enemies:
-			if enemy:
+			print(enemy)
+			if str(enemy) != "[Deleted Object]":
 				enemy.chasing = false
 				enemies.remove(i)
 				i+=1

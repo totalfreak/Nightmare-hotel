@@ -42,6 +42,7 @@ func _physics_process(delta):
 		#Stop chasing if player is inside the vent or in the shadows
 		if Globals.player.inside_vent or Globals.player.hidden:
 			chasing = false
+		$EnemySprite.play("Walk")
 		$EnemySprite.frames.set_animation_speed("Walk", 10)
 		$WalkingSound.pitch_scale = 1.3
 		if player.global_position.x < enemy.global_position.x:
@@ -65,8 +66,10 @@ func get_hit_by_box():
 
 func get_dazed():
 	dazed = true
+	$"Dazed Sprite".visible = true
 	daze_timer.start(2)
 
 func get_not_dazed():
 	dazed = false
+	$"Dazed Sprite".visible = false
 	daze_timer.stop()

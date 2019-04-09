@@ -132,12 +132,12 @@ func get_all_enemies(start_node):
 	var result : Array
 	for N in start_node.get_children():
 		if N.get_child_count() > 0:
-			if N.is_in_group("Enemy"):
+			if N.is_in_group("Enemy") and not N == null:
 				result.append(N)
 			get_all_enemies(N)
 		else:
 			# Do something
-			if N.is_in_group("Enemy"):
+			if N.is_in_group("Enemy") and not N == null:
 				result.append(N)
 	return result
 	

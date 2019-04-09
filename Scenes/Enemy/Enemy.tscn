@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy/DetectionArea.gd" type="Script" id=2]
@@ -12,6 +12,10 @@
 [ext_resource path="res://Scenes/Enemy/Sprite-0008.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Enemy/Sprite-0009.png" type="Texture" id=11]
 [ext_resource path="res://assets/sounds/enemyWalkSlower.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/sprites/dazed_0.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/dazed_1.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/dazed_2.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/dazed_3.png" type="Texture" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 32.0
@@ -31,6 +35,14 @@ animations = [ {
 "loop": true,
 "name": "Walk",
 "speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
 } ]
 
 [node name="Enemy" type="KinematicBody2D" groups=[
@@ -69,5 +81,13 @@ attenuation = 0.535887
 
 [node name="Daze Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Dazed Sprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 8, -176 )
+scale = Vector2( 3.75, 3.75 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
 
 [connection signal="body_entered" from="DetectionArea" to="DetectionArea" method="_on_DetectionArea_body_entered"]
