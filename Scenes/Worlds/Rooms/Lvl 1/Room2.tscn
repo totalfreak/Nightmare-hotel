@@ -42,7 +42,7 @@ scale = Vector2( 16, 8 )
 
 [node name="Ceiling Lamp" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
-position = Vector2( 584, 217 )
+position = Vector2( 584, 216 )
 
 [node name="occlusion_mask" parent="Ceiling Lamp/Ceiling Lamp/Ceiling Lamp" index="1"]
 position = Vector2( -2, 11 )
@@ -50,26 +50,30 @@ position = Vector2( -2, 11 )
 [node name="occlusion_mask" parent="Ceiling Lamp/Ceiling Lamp" index="1"]
 polygon = PoolVector2Array( -16, 29, -2, 7, 2, 7, 16, 29, 2, 2, -2, 2 )
 
-[node name="NightStandSprite" type="Sprite" parent="."]
-position = Vector2( 280, 228 )
-scale = Vector2( 1.77344, 2.125 )
+[node name="NightStandSprite2" type="Sprite" parent="."]
+position = Vector2( 504, 16 )
+scale = Vector2( 2.70539, 3.71023 )
+z_index = -2
 texture = ExtResource( 7 )
 offset = Vector2( 94.2857, 94.5454 )
 
-[node name="NightStandSprite2" type="Sprite" parent="."]
-position = Vector2( 560, 228 )
-scale = Vector2( 1.77344, 2.125 )
+[node name="NightStandSprite3" type="Sprite" parent="."]
+position = Vector2( 136, 16 )
+scale = Vector2( 2.70539, 3.71023 )
+z_index = -2
 texture = ExtResource( 7 )
 offset = Vector2( 94.2857, 94.5454 )
 
 [node name="BedSprite" type="Sprite" parent="."]
-position = Vector2( 590, 416 )
-scale = Vector2( 2.21875, 2.125 )
+position = Vector2( 576, 336 )
+scale = Vector2( 3.71875, 3.90625 )
+z_index = -2
 texture = ExtResource( 8 )
 
 [node name="FishPaintingSprite" type="Sprite" parent="."]
-position = Vector2( 584, 312 )
+position = Vector2( 384, 256 )
 scale = Vector2( 5.75, 5.5 )
+z_index = -2
 texture = ExtResource( 9 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

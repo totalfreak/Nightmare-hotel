@@ -110,7 +110,7 @@ canDie = false
 current = false
 
 [node name="Fire" parent="Player" index="4"]
-frame = 1
+frame = 2
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 7 )]
 
