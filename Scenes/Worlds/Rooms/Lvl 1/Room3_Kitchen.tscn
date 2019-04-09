@@ -89,7 +89,6 @@ position = Vector2( 0, -1 )
 mode = 1
 
 [node name="Not In Room Dark" parent="." instance=ExtResource( 8 )]
-modulate = Color( 1, 1, 1, 0.745098 )
 position = Vector2( 352, 288 )
 scale = Vector2( 27, 7 )
 

@@ -109,14 +109,15 @@ func remove_outline(var sprite):
 	sprite.get_material().set_shader_param("shouldOutline", false)
 
 # Show help text
-func apply_interact_text(node):
+func apply_interact_text(node, key = "interact"):
 	#remove_interact_text(node)
 	node.interact_text = interact_help.instance()
-	node.interact_text.get_node("Container/Interact Text").text = InputMap.get_action_list("interact")[0].as_text()
-	print(InputMap.get_action_list("interact")[0].as_text())
+	node.interact_text.get_node("Container/Interact Text").text = InputMap.get_action_list(key)[0].as_text()
+	node.interact_text.get_node("Container/Interact Text").set_align(HALIGN_CENTER)
+	print(InputMap.get_action_list(key)[0].as_text())
 	get_tree().root.get_node("Main").add_child(node.interact_text)
 	node.interact_text.set_owner(get_tree().root.get_node("Main"))
-	node.interact_text.global_position = node.global_position + Vector2(0, -55)
+	node.interact_text.global_position = node.global_position + Vector2(0, -55) - Vector2((node.interact_text.get_node("Container/Interact Text").get_total_character_count() - 1) * 6.2,0)
 	pass
 
 

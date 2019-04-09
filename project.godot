@@ -16,12 +16,22 @@ _global_script_class_icons={
 [application]
 
 config/name="Nightmare Hotel"
-run/main_scene="res://Scenes/Worlds/Main.tscn"
+run/main_scene="res://Scenes/UI/StartMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
+Bgmusic="*res://Scripts/Bgmusic.gd"
 Globals="*res://Scripts/Globals.gd"
+
+[display]
+
+window/size/fullscreen=true
+window/per_pixel_transparency/allowed=true
+window/per_pixel_transparency/enabled=true
+window/per_pixel_transparency/splash=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 

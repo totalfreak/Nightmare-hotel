@@ -27,40 +27,25 @@ shader_param/isInVent = null
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Run",
-"speed": 30.0
-
+"name": "Jump",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-
+"name": "Run",
+"speed": 30.0
 } ]
 
 [sub_resource type="RayShape2D" id=4]
@@ -101,6 +86,7 @@ editor_draw_drag_margin = true
 material = SubResource( 2 )
 frames = SubResource( 3 )
 animation = "Run"
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -4 )
@@ -114,10 +100,7 @@ position = Vector2( 0, 32 )
 
 [node name="Fire" parent="." instance=ExtResource( 11 )]
 position = Vector2( -2, -1 )
-
 z_index = 1
-frame = 0
-
 
 [node name="Background" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1700, -945 )
