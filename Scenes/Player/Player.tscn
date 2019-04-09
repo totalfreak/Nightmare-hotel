@@ -1,48 +1,49 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Shaders/Player.shader" type="Shader" id=2]
-[ext_resource path="res://assets/sprites/Player/Gobo1.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/Player/Gobo2.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/Player/Gobo3.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/Player/Gobo4.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/Player/Gobo5.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/Player/Gobo6.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/Player/Gobo7.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/Player/Gobo8.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/VFX/Fire.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=13]
-[ext_resource path="res://assets/sounds/playerWalk.ogg" type="AudioStream" id=14]
-[ext_resource path="res://assets/sounds/ignite.ogg" type="AudioStream" id=15]
-[ext_resource path="res://assets/sounds/jumpGobbo.wav" type="AudioStream" id=16]
-[ext_resource path="res://assets/sounds/roblox-death-sound_1.wav" type="AudioStream" id=17]
+[ext_resource path="res://Scripts/ScreenShake.gd" type="Script" id=2]
+[ext_resource path="res://Shaders/Player.shader" type="Shader" id=3]
+[ext_resource path="res://assets/sprites/Player/Gobo1.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/Player/Gobo2.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/Player/Gobo3.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/Player/Gobo4.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/Player/Gobo5.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/Player/Gobo6.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/Player/Gobo7.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/Player/Gobo8.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/VFX/Fire.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sprites/Lights/spot.png" type="Texture" id=14]
+[ext_resource path="res://assets/sounds/playerWalk.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/sounds/ignite.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/sounds/jumpGobbo.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/sounds/roblox-death-sound_1.wav" type="AudioStream" id=18]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 2 )
+shader = ExtResource( 3 )
 shader_param/isInVent = null
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Run",
 "speed": 30.0
@@ -81,6 +82,7 @@ drag_margin_right = 0.0
 drag_margin_bottom = 1.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 material = SubResource( 2 )
@@ -98,11 +100,12 @@ editor/display_folded = true
 [node name="JumpParticlePoint" type="Position2D" parent="JumpParticleContainer"]
 position = Vector2( 0, 32 )
 
-[node name="Fire" parent="." instance=ExtResource( 11 )]
+[node name="Fire" parent="." instance=ExtResource( 12 )]
 position = Vector2( -2, -1 )
 z_index = 1
+frame = 3
 
-[node name="Background" parent="." instance=ExtResource( 12 )]
+[node name="Background" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1700, -945 )
 scale = Vector2( 2.625, 2.625 )
 z_index = -20
@@ -114,7 +117,7 @@ shape = SubResource( 5 )
 [node name="Ventilation Light2D" type="Light2D" parent="."]
 visible = false
 z_index = -1
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 texture_scale = 3.0
 energy = 0.7
 range_height = -1.0
@@ -126,21 +129,21 @@ position = Vector2( 0, 11 )
 
 [node name="Running" type="AudioStreamPlayer2D" parent="."]
 pause_mode = 2
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -0.28
 attenuation = 0.466517
 
 [node name="Burning" type="AudioStreamPlayer2D" parent="."]
 pause_mode = 1
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -0.887
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 volume_db = -1.078
 
 [node name="DeathByenemy" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = -1.078
 
 [connection signal="body_entered" from="." to="." method="_on_TouchedByEnemy_body_entered"]
