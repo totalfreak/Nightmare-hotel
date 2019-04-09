@@ -41,13 +41,10 @@ func _process(delta):
 		if interact_text:
 			Globals.remove_interact_text(self)
 	
-	print(get_colliding_bodies())
-	if Globals.did_move(pos_array, self.position):
+	if Globals.did_move(pos_array, self.position) and not isPickedUp:
 		for body in get_colliding_bodies():
 			if body.name == "TileMap":
-				if $ThumpSound.is_playing():
-					break
-				else:
+				if not $ThumpSound.is_playing():
 					$ThumpSound.play()
 	
 

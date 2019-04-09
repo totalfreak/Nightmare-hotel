@@ -3,12 +3,13 @@
 [ext_resource path="res://Scenes/Props/ThrowableObject.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/Outline shader.shader" type="Shader" id=2]
 [ext_resource path="res://assets/sprites/Props/Crate.png" type="Texture" id=3]
-[ext_resource path="res://assets/sounds/thump.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/thumb.wav" type="AudioStream" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.2
 
 [sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/shouldOutline = false
 shader_param/width = 2.0
@@ -56,6 +57,7 @@ occluder = SubResource( 4 )
 
 [node name="ThumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -20.0
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_ThrowableObject_sleeping_state_changed"]
 [connection signal="body_entered" from="PlayerEntered" to="." method="_on_PlayerEntered_body_entered"]
