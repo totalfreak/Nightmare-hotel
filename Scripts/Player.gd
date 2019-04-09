@@ -172,7 +172,7 @@ func _integrate_forces(s):
 			lv.y = -JUMP_VELOCITY
 			jumping = true
 			var particle = jumpParticle.instance()
-			$Jump.play()
+			
 			$JumpParticleContainer/JumpParticlePoint.add_child(particle)
 			stopping_jump = false
 			#$sound_jump.play()
