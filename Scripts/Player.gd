@@ -55,7 +55,7 @@ func enter_light():
 	amount_of_lights_entered += 1
 	if amount_of_lights_entered >= 1:
 		entered_light = true
-		$Fire.visible = true
+		$Fire.get_node("Particles2D").visible = true
 		$Burning.play()
 		print("Entered Light")
 		print("Amount of lights: ", amount_of_lights_entered)	
@@ -66,7 +66,7 @@ func leave_light():
 		entered_light = false
 		print("Left Light")
 		print("Amount of lights: ", amount_of_lights_entered)
-		$Fire.visible = false
+		$Fire.get_node("Particles2D").visible = false
 		$Burning.stop()
 
 func _process(delta):
@@ -74,7 +74,7 @@ func _process(delta):
 		timeInLight += delta
 	elif timeInLight > 0:
 		timeInLight -= delta
-	
+	$Fire.scale = Vector2(timeInLight, timeInLight)
 	if timeInLight > maxTimeInLight:
 		_Die()
 	pass
