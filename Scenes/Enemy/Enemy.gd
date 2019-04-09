@@ -47,8 +47,10 @@ func _physics_process(delta):
 		$WalkingSound.pitch_scale = 1.3
 		if player.global_position.x < enemy.global_position.x:
 			direction = -1
+			self.scale.x = -1
 		elif player.global_position.x > enemy.global_position.x:
 			direction = 1
+			self.scale.x = 1
 		else: 
 			$EnemySprite.play("Idle")
 		motion.x = (speed * 2) * direction
