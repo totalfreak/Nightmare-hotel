@@ -8,10 +8,12 @@ var hasBeenInRoom = false
 
 var desiredDarkAlpha = 0.9
 
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
+
 
 func _process(delta):
 	$"Not In Room Dark".modulate.a = lerp($"Not In Room Dark".modulate.a, desiredDarkAlpha, delta * 2)

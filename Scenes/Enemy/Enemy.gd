@@ -13,9 +13,12 @@ var walkingRange = 200
 var distanceWalked = 0
 onready var enemy = get_node(".")
 
+onready var daze_timer = $"Daze Timer"
+
 func _ready():
 	set_process(true)
 	$WalkingSound.playing = true
+	daze_timer.connect("timeout", self, "get_not_dazed")
 	pass
 
 func _physics_process(delta):
@@ -47,7 +50,11 @@ func _physics_process(delta):
 		else: 
 			$EnemySprite.play("Idle")
 		motion.x = (speed * 2) * direction
-	motion = move_and_slide(motion * speed * delta, UP)
+	if not dazed:
+		motion = move_and_slide(motion * speed * delta, UP)
+	else:
+		$EnemySprite.play("Idle")
+		motion = Vector2()
 
 func get_hit_by_box():
 	if not dazed:
@@ -56,6 +63,8 @@ func get_hit_by_box():
 
 func get_dazed():
 	dazed = true
+	daze_timer.start(2)
 
 func get_not_dazed():
 	dazed = false
+	daze_timer.stop()

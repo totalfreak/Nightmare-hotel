@@ -15,10 +15,12 @@ var interact_text
 var my_sprite : Sprite
 var pos_array = []
 
+
 func _ready():
 	OGowner = self.get_owner()
 	my_sprite = $Sprite
 	pass
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and playerInside and not Globals.player.handsFull and not isPickedUp:
@@ -49,7 +51,7 @@ func _process(delta):
 					Globals.player.camera.shake(0.2, 20, 2)
 			if body.is_in_group("Enemy"):
 				body.get_hit_by_box()
-	
+
 
 func throwObject(delta):
 	var throwDir = (get_global_mouse_position() - self.global_position).normalized() * (throwForce * (mass )) * delta
@@ -70,6 +72,7 @@ func throwObject(delta):
 	set_collision_mask_bit(4, true)
 	pass
 
+
 func pickUpObject():
 	self.get_parent().remove_child(self)
 	Globals.player.get_node("ThrowableContainer").add_child(self)
@@ -83,6 +86,7 @@ func pickUpObject():
 	set_collision_layer_bit(4, false)
 	set_collision_mask_bit(4, false)
 	pass
+
 
 func _on_PlayerEntered_body_entered(body):
 	if body == Globals.player:

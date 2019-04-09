@@ -64,7 +64,6 @@ position = Vector2( -513, 7.46809 )
 scale = Vector2( 4.17, 3.35854 )
 
 [node name="Room2" parent="Rooms" instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( -80, 574 )
 
 [node name="emptyRoom" parent="Rooms/Room2" index="0"]

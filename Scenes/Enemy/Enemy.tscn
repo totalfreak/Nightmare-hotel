@@ -67,4 +67,7 @@ autoplay = true
 max_distance = 700.0
 attenuation = 0.535887
 
+[node name="Daze Timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="DetectionArea" to="DetectionArea" method="_on_DetectionArea_body_entered"]
