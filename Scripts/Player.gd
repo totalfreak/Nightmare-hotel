@@ -33,6 +33,7 @@ onready var player = get_node(".")
 # Death and light variables
 var timeInLight = 0.0
 export var maxTimeInLight = 1.0
+export var canDie = true
 var entered_light = false
 var amount_of_lights_entered = 0
 
@@ -99,7 +100,7 @@ func _process(delta):
 
 
 func _Die():
-	if not dead:
+	if not dead and canDie:
 		dead = true
 		Globals.player_death()
 		pass

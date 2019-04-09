@@ -82,7 +82,7 @@ region_enabled = true
 region_rect = Rect2( 2, 130, 28, 14 )
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 400, 448 )
+position = Vector2( 368, 448 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )

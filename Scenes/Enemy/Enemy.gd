@@ -3,7 +3,7 @@ extends KinematicBody2D
 const UP = Vector2(0, -1)
 
 var motion = Vector2()
-var speed = 70
+var speed = 50
 var chasing = false
 
 var direction = 1

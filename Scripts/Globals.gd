@@ -27,6 +27,8 @@ func _ready():
 
 #warning-ignore:unused_argument
 func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		_Change_Scene("res://Scenes/UI/StartMenu.tscn")
 	global_mouse = get_global_mouse_position()
 
 
@@ -35,13 +37,14 @@ func check_if_player_in_light(position, length):
 	
 	#print((player.global_position - global_position).normalized())
 	# Fire ray from the light position towards player position, at the player physics layer
-	result = space_state.intersect_ray(position, player.global_position, [], 1)
+	if player:
+		result = space_state.intersect_ray(position, player.global_position, [], 1)
 	
 	#print(result)
 	if result:
 		if result.collider == player and position.distance_to(player.global_position)  / 30 < length:
 			ray_draw_list.append([result.position, position])
-			update()
+			#update()
 			#print(result.position.distance_to(position))
 			return result
 

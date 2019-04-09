@@ -28,10 +28,9 @@ format = 1
 tile_data = PoolIntArray( 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 131064, 0, 0, 65554, 0, 0, 196600, 0, 0, 131090, 0, 0, 262136, 0, 0, 196626, 0, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( -448, 64, 1152, 64, 1152, 512, -448, 512 )
+polygon = PoolVector2Array( -512, 64, 1216, 64, 1216, 512, -512, 512 )
 
 [node name="Background" parent="." instance=ExtResource( 3 )]
 position = Vector2( -446.827, 7.46809 )
@@ -90,10 +89,9 @@ position = Vector2( 0, -1 )
 mode = 1
 
 [node name="Not In Room Dark" parent="." instance=ExtResource( 8 )]
-visible = false
 modulate = Color( 1, 1, 1, 0.745098 )
-position = Vector2( 352.5, 288 )
-scale = Vector2( 24.9844, 7 )
+position = Vector2( 352, 288 )
+scale = Vector2( 27, 7 )
 
 [node name="Table" parent="." instance=ExtResource( 9 )]
 position = Vector2( 220, 443.5 )

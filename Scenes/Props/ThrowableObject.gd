@@ -35,6 +35,11 @@ func _process(delta):
 		set_collision_layer_bit(1, false)
 		set_collision_mask_bit(1, false)
 	
+	if Globals.player.handsFull:
+		Globals.remove_outline(my_sprite)
+		if interact_text:
+			Globals.remove_interact_text(self)
+		
 	
 
 func throwObject(delta):

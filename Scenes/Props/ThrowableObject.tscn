@@ -9,6 +9,7 @@
 bounce = 0.2
 
 [sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/shouldOutline = false
 shader_param/width = 2.0
