@@ -40,12 +40,11 @@ position = Vector2( 1706, 516 )
 physics_material_override = SubResource( 1 )
 
 [node name="Fire" parent="Player" index="4"]
-frame = 1
+frame = 2
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 
 [node name="Rooms" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -65,19 +64,18 @@ position = Vector2( -513, 7.46809 )
 scale = Vector2( 4.17, 3.35854 )
 
 [node name="Room2" parent="Rooms" instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( -80, 574 )
 
 [node name="emptyRoom" parent="Rooms/Room2" index="0"]
 position = Vector2( 512, 272.5 )
 scale = Vector2( 1.42222, 1.13542 )
 
-[node name="Area2D" parent="Rooms/Room2" index="2"]
-editor/display_folded = true
+[node name="CollisionPolygon2D" parent="Rooms/Room2/Area2D" index="0"]
+polygon = PoolVector2Array( 58, 62, 1024, 64, 1024, 512, 58, 518 )
 
 [node name="Not In Room Dark" parent="Rooms/Room2" index="4"]
-position = Vector2( 513.001, 256 )
-scale = Vector2( 16.0312, 8 )
+position = Vector2( 542, 287 )
+scale = Vector2( 15.125, 7.03125 )
 
 [node name="Ceiling Lamp" parent="Rooms/Room2" index="5"]
 position = Vector2( 592, 223 )
